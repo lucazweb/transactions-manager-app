@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Sidebar = () => (
@@ -13,8 +14,8 @@ const Sidebar = () => (
 
         <nav className="sidebar-menu">
             <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Add Transaction</a></li>
+                <li><Link to='/'>Dashboard</Link></li>
+                <li><Link to='/new-transaction'>Add Transaction</Link></li>
                 <li><a href="#">Transaction list</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>

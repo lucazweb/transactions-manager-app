@@ -3,7 +3,7 @@ import './style.scss';
 
 const TransactionsForm = () => (
     <div className="transactions-form">
-        <h2>Register transaction</h2>
+        <h2>Register a new transaction</h2>
         <form action="">
             <div className="group">      
                 <input type="text" required />
