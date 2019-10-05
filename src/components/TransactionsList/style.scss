@@ -1,0 +1,94 @@
+$color-list-bullet: #0B2833;
+
+@mixin flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-horizontal {
+    display: flex;
+}
+
+.transactions-list{
+    h2{
+        margin-bottom: 0;
+    }
+    // CSS VERTICAL TIMELINE
+   
+    .box{
+        overflow: hidden;
+        padding: 10px 0 40px 60px;
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            transition: all 0.5s linear;
+            top:0;
+            &:before{
+                content: "";
+                display: block;
+                width: 0;
+                height: 100%;
+                border:1px dashed #333;
+                position: absolute;
+                top:5px;
+                left:30px
+            }
+
+            li{
+                margin: 25px 60px 20px;
+                position: relative;
+                padding: 0px 10px;
+                color:#333;
+                border-radius: 10px;
+                line-height: 20px;
+                width: 35%;
+                .title{
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    font-size: 0.9em;
+                    &:first-letter{text-transform: capitalize;line-height: 1.7}
+                }    
+                .price{
+                    font-size: 1.4em;
+                    display: initial;
+                }    
+                .time {
+                    span{
+                        position: absolute;
+                        left: -100px;
+                        top: -2px;
+                        color:#333;
+                        font-size:80%;
+                        font-weight: bold;
+                    }                         
+                }                                   
+            }   
+            li > span{
+                content: "";
+                display: block;
+                width: 0;
+                height: 100%;
+                border:1px solid #333;
+                position: absolute;
+                top:12px;
+                left:-30px;
+                &:before{
+                    content: "";
+                    display: block;
+                    top: -10px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: $color-list-bullet;
+                    border:2px solid #333;
+                    position: absolute;
+                    left:-7.5px
+                }
+                &:after{top:95%}
+            }                     
+        }        
+    }
+}

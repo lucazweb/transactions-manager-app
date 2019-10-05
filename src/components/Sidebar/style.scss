@@ -1,0 +1,94 @@
+$color-menu-item-background: transparent;
+$color-menu-item-color: white;
+$color-sidebar-background: #1C6E8C;
+$color-sidebar-background-hover: #0B2833;
+$color-placeholder: #F3F3F3;
+
+@mixin flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-horizontal {
+    display: flex;
+}
+// Sidebar
+aside{
+    background: $color-sidebar-background;
+    .user-profile{
+        width: 100%;
+        @include flex-horizontal;
+        padding: 10px;
+        color: white;
+        .user-photo{
+            display: flex;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: $color-placeholder;
+            align-self: auto;
+            flex-shrink: 0;
+            border: 1px solid #ccc;
+        }
+
+        .user-info{
+            @include flex-vertical();
+            justify-content: center;
+            margin-left: 10px;
+            h2{
+                font-size: 1em;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    .sidebar-menu{
+        @include flex-vertical();
+        ul{
+            @include flex-vertical();
+            list-style: none;
+            width: 100%;
+            margin: 10px 0;
+            padding: 0;
+            -webkit-animation:showItems 0.6s ease;
+            -moz-animation:showItems 0.6s ease;
+            animation:showItems 0.6s ease;            
+            li{
+                @include flex-horizontal();
+                width: 100%;
+                height: 40px;
+                border-bottom: 1px solid $color-sidebar-background-hover;
+                justify-content: center;
+                align-items: center;
+                background: $color-menu-item-background;
+                padding-left: 15px;
+                cursor: pointer;
+                &:hover{
+                    background: $color-sidebar-background-hover;
+                    a{
+                        color: white;
+                    }
+                }
+
+                a{
+                    @include flex-vertical();
+                    display: block;
+                    align-items: center;
+                    width: 100%;
+                    font-size: 0.9em;
+                    color: $color-menu-item-color;
+                    text-decoration: none;
+                }
+                
+            }
+        }
+
+        // MENU ANIMATION
+        @-webkit-keyframes showItems {
+            from { margin: 50px 0; opacity: 0.2; }
+            to 	{ margin: 10px 0; opacity: 1 }
+        }
+
+    }
+}
