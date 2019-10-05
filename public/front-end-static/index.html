@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Transactions Manager App</title>
+
+    <div class="app">
+        <aside>
+            <div class="user-profile">
+                <div class="user-photo"></div>
+                <div class="user-info">
+                    <h2>User name</h2>
+                    <span>user@transactions.com</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Add Transaction</a></li>
+                    <li><a href="#">Transaction list</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <pre> Transactions display component </pre>
+            <div class="total-amount-display">
+                <div class="transaction-display-item">
+                    <h2>Credit</h2>
+                    <span>R$ 23.39</span>
+                </div>
+                <div class="transaction-display-item">
+                    <h2>Debit</h2>
+                    <span>R$ 23.39</span>
+                </div>
+                <div class="transaction-display-item">
+                    <h2>Total amount</h2>
+                    <span>R$ 23.39</span>
+                </div>
+
+            </div>
+            <pre>Transactions list</pre>
+            <div class="transactions-list">
+                <h2>Transactions list</h2>
+                <!-- VERTICAL TIMELINE -->
+                <div class="box">
+                        <ul id="first-list">
+                            <li>
+                                <span></span>
+                                <div class="title">Uber</div>
+                                <div class="price">R$ 23.99</div>
+                                <div class="time">
+                                    <span>04, Out</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <div class="title">iFood</div>
+                                <div class="price">R$ 34.78</div>
+                                <div class="time">
+                                    <span>29, Set</span>
+                                </div>
+                            </li>
+                                                       
+                            <li>
+                                <span></span>
+                                <div class="title">Uber</div>
+                                <div class="price">R$ 23.99</div>
+                                <div class="time">
+                                    <span>29, Set</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <div class="title">iFood</div>
+                                <div class="price">R$ 34.78</div>
+                                <div class="time">
+                                    <span>29, Set</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <div class="title">Padaria Novo Pão</div>
+                                <div class="price">R$ 12.39</div>
+                                <div class="time">
+                                    <span>29, Set</span>
+                                </div>
+                            </li>                            
+                        </div> 
+                        </ul>
+                        <!-- / VERTICAL TIMELINE -->
+                    </div>
+                    <pre>Transactions Form</pre>
+                    <div class="transactions-form">
+                        <h2>Register transaction</h2>
+                        <form action="">
+                            <div class="group">      
+                                <input type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Description</label>
+                            </div>                                                        
+                            <div class="group-row">
+                                <div class="group">      
+                                    <input type="number" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Value</label>
+                                </div>                                  
+
+                                <div class="group">      
+                                    <input type="text" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Category</label>
+                                </div>                            
+                            </div>
+                            <div class="group group-btns">
+                                <button class="btn btn-save-transactions">Save Transaction</button>
+                                <button class="btn btn-cancel-transactions">Cancel Transaction</button>
+                            </div>
+                            
+                            
+                        </form>
+                    </div>                    
+                
+
+
+            </div>
+            
+
+
+        </main>
+    </div>
+
+</head>
+<body>
+    
+</body>
+</html>
