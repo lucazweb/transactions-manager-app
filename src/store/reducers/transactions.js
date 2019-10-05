@@ -1,0 +1,13 @@
+const INITIAL_STATE = {
+    transactions: []
+};
+
+export default function(state = INITIAL_STATE, action){
+    switch(action.type){
+        case 'GET_TRASACTIONS_REQUEST':
+            return state;
+
+        default:
+            return state;
+    }
+}
