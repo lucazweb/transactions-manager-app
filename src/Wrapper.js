@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import HomeView from './views/HomeView';
 
 const Wrapper = () => (
-    <pre> Transactions Manager App</pre>
+    <HomeView />
 );
 
 const mapStateToProps = function(state){

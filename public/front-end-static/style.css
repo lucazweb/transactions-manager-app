@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css?family=Be+Vietnam:400,600,600i,700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, p, span, a, li {
+  font-family: "Be Vietnam", sans-serif;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+.app aside {
+  width: 25%;
+  padding: 15px 0px 15px 0;
+  height: 100vh;
+  border-right: 1px solid #333;
+}
+.app main {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 100vh;
+  padding: 20px;
+}
+
+.total-amount-display {
+  display: flex;
+  width: 80%;
+  padding: 15px;
+  border: 1px solid #333;
+}
+.total-amount-display .transaction-display-item {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.total-amount-display .transaction-display-item h2 {
+  margin: 0;
+  padding: 0;
+}
+.total-amount-display .transaction-display-item span {
+  font-size: 2em;
+}
+
+.transactions-list h2 {
+  margin-bottom: 0;
+}
+.transactions-list .box {
+  overflow: hidden;
+  padding: 10px 0 40px 60px;
+}
+.transactions-list .box ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition: all 0.5s linear;
+  top: 0;
+}
+.transactions-list .box ul:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  border: 1px dashed #333;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+}
+.transactions-list .box ul li {
+  margin: 35px 60px 20px;
+  position: relative;
+  padding: 0px 10px;
+  color: #333;
+  border-radius: 10px;
+  line-height: 20px;
+  width: 35%;
+}
+.transactions-list .box ul li .title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+.transactions-list .box ul li .title:first-letter {
+  text-transform: capitalize;
+  line-height: 1.7;
+}
+.transactions-list .box ul li .price {
+  font-size: 1.4em;
+  display: initial;
+}
+.transactions-list .box ul li .time span {
+  position: absolute;
+  left: -100px;
+  top: -2px;
+  color: #333;
+  font-size: 80%;
+  font-weight: bold;
+}
+.transactions-list .box ul li > span {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  border: 1px solid #333;
+  position: absolute;
+  top: 12px;
+  left: -30px;
+}
+.transactions-list .box ul li > span:before {
+  content: "";
+  display: block;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CCCCCC;
+  border: 2px solid #333;
+  position: absolute;
+  left: -7.5px;
+}
+.transactions-list .box ul li > span:after {
+  top: 95%;
+}
+
+.transactions-form {
+  width: 80%;
+}
+.transactions-form .group-row {
+  display: flex;
+  justify-content: space-between;
+}
+.transactions-form .group-btns {
+  display: flex;
+}
+.transactions-form .group-btns .btn {
+  margin: 10px;
+}
+.transactions-form .group {
+  position: relative;
+  margin-bottom: 45px;
+  width: 100%;
+}
+.transactions-form .group input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+.transactions-form .group input:focus {
+  outline: none;
+}
+.transactions-form .group input:focus ~ label, .transactions-form .group input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+.transactions-form .group input:focus ~ .bar:before, .transactions-form .group input:focus ~ .bar:after {
+  width: 50%;
+}
+.transactions-form .group input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+.transactions-form .group label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  font-family: "Be Vietnam", sans-serif;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.transactions-form .group .bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+.transactions-form .group .bar:before {
+  left: 50%;
+}
+.transactions-form .group .bar:after {
+  right: 50%;
+}
+.transactions-form .group .bar:before, .transactions-form .group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.transactions-form .group .highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.transactions-form .group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 250px;
+  border: 1.5px solid #333;
+  font-size: 1em;
+  cursor: pointer;
+}
+.transactions-form .group .btn-save-transactions:hover {
+  border: 1.5px solid #289e28;
+  color: #289e28;
+}
+.transactions-form .group .btn-cancel-transactions:hover {
+  border: 1.5px solid #c93c3c;
+  color: #c93c3c;
+}
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+aside .user-profile {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+aside .user-profile .user-photo {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #F3F3F3;
+  align-self: auto;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+}
+aside .user-profile .user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+aside .user-profile .user-info h2 {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+aside .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+aside .sidebar-menu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+}
+aside .sidebar-menu ul li {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid white;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding-left: 15px;
+  cursor: pointer;
+}
+aside .sidebar-menu ul li:hover {
+  background: #333;
+}
+aside .sidebar-menu ul li:hover a {
+  color: white;
+}
+aside .sidebar-menu ul li a {
+  display: flex;
+  flex-direction: column;
+  display: block;
+  align-items: center;
+  width: 100%;
+  font-size: 0.9em;
+  color: #333;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
