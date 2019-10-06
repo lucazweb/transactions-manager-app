@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import { Router, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
 import HomeView from './views/HomeView';
 import NewTransactionView from './views/NewTransactionView';
 
@@ -18,11 +17,8 @@ const Wrapper = () => (
     
 );
 
-const mapStateToProps = function(state){
-    console.log(state);
-    return {
-        state,
-    }
-}
+const mapStateToProps = state => ({
+    state,    
+})
 
 export default connect(mapStateToProps)(Wrapper);

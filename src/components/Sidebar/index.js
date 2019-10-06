@@ -16,7 +16,7 @@ const Sidebar = () => (
             <ul>
                 <li><Link to='/'>Dashboard</Link></li>
                 <li><Link to='/new-transaction'>Add Transaction</Link></li>
-                <li><a href="#">Transaction list</a></li>
+                <li><a href="#">Transactions list</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
         </nav>
