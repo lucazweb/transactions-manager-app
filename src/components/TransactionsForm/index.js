@@ -1,6 +1,4 @@
 import React from 'react';
-// import firebase from 'firebase';
-// import Fire from '../../config/Fire';
 import { SaveTransaction } from '../../service/FireService';
 import { connect } from 'react-redux';
 import { customHistory } from '../../Wrapper';
@@ -17,7 +15,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
     
     let transaction = {
         description: form.description.value,
-        value: form.value.value,
+        value: Number(form.value.value),
         category: form.category.value
     }
 
@@ -41,13 +39,13 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
         addTransactionReq();
         SaveTransaction(transaction)
             .then(res => {
+                transaction.id = res.id;
                 addTransactionSuccess({
-                    id: res.id,
-                    data: {
-                        description: transaction.description,
-                        value: transaction.value,
-                        cateogory: transaction.category
-                    }
+                  id: res.id,
+                  data: {
+                    description: transaction.description,
+                    value: transaction.value
+                  }
                 });
                 ['description', 'value'].forEach(field => form[field].value = '');
                 customHistory.push('/');

@@ -21,7 +21,7 @@ class Wrapper extends React.Component{
                 snapshot.forEach(doc => {
                   result.push({
                     id: doc.id,
-                    data: doc.data()
+                    data: doc.data(),
                   })
                 });
                 

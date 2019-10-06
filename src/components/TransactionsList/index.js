@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
@@ -29,7 +30,7 @@ const TransactionsList = ({transactions}) => (
                         </ul>
                     </div>                 
                 </Fragment>
-            ) : (<p> Sem transações realizadas</p>)
+            ) : (<p> Sem transações realizadas, <Link to='/new-transaction'>Adicionar </Link> </p>)
         }
     </div> 
 );
