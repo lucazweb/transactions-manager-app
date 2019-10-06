@@ -5,7 +5,7 @@ import { Router, Route } from 'react-router-dom';
 import HomeView from './views/HomeView';
 import NewTransactionView from './views/NewTransactionView';
 
-const customHistory = createBrowserHistory();
+export const customHistory = createBrowserHistory();
 
 const Wrapper = () => (
     <div className="app">

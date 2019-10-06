@@ -148,3 +148,26 @@ $color-danger: #c93c3c;
         to{ width:0; background:transparent; }
     }
 }
+
+// Toggle component
+.group.group-toogle-type{
+    position: relative;
+
+    &:hover{
+        input{
+            color: purple;
+        }
+    }
+    .toggle-thrigger{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        cursor: pointer;
+        z-index: 300;
+    }
+    input{
+        cursor: pointer;
+    }
+}

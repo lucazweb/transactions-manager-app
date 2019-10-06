@@ -1,23 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { customHistory } from '../../Wrapper';
 import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
 
 import './style.scss';
 
+let defaultCategory = 'Credit';
+
 const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess) => {
     event.preventDefault();
+    
     addTransactionReq();
     addTransactionSuccess({
         description: event.target.description.value,
-        value: event.target.value.value
+        value: event.target.value.value,
+        category: event.target.category.value
     });
    
     ['description', 'value'].forEach(field => event.target[field].value = '');
 }
 
+const handleCategoryValue = e => {
+    e.target.value = e.target.value === 'Credit' ? 'Debit' : 'Credit';
+}
+
 const handleCancelRequest = () => {
-    console.info('REDIRECT TO HOME VIEW');
+    customHistory.push('/');
 }
 
 
@@ -39,11 +48,12 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess }) => (
                     <label>Value</label>
                 </div>                                  
 
-                <div className="group">      
-                    <input name="category" type="text" />
+                <div className="group group-toogle-type">  
+                    
+                    <input id="category" readOnly="readonly" onClick={e => handleCategoryValue(e)} name="category" type="text" defaultValue={defaultCategory} />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label>Category</label>
+                    {/* <label>Category</label> */}
                 </div>                            
             </div>
             <div className="group group-btns">
@@ -54,9 +64,12 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess }) => (
     </div>    
 );
 
-const mapStateToProps = state => ({
-    state,
-});
+const mapStateToProps = function(state){
+    console.log(state);
+    return {
+        state,
+    }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators(transactionActions, dispatch);
 
