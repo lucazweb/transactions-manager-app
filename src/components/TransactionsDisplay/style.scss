@@ -1,0 +1,28 @@
+@mixin flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-horizontal {
+    display: flex;
+}
+
+// Total Amount Display
+.total-amount-display{
+    @include flex-horizontal;
+    width: 80%;
+    padding: 15px;
+    border: 1px solid #333;
+    .transaction-display-item{
+        @include flex-vertical;
+        width: 250px;
+        h2{
+            margin: 0;
+            padding: 0
+        }
+        span{
+            font-size: 2em;
+        }
+
+    }
+}

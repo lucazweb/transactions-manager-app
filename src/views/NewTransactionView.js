@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
 import TransactionsDisplay from '../components/TransactionsDisplay';
-import TransactionsList from '../components/TransactionsList';
+import TransactionsForm from '../components/TransactionsForm';
 import Sidebar from '../components/Sidebar';
 
-const HomeView = () => (
+const NewTransactionView = () => (
     <Fragment>
         <Sidebar />
         <main>
             <TransactionsDisplay />
-            <TransactionsList />
-        </main>
+            <TransactionsForm />
+        </main>        
     </Fragment>
 );
 
-export default HomeView;
+export default NewTransactionView;

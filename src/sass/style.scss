@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam:400,600,600i,700&display=swap');
+
+// COLORS
+
+$color-app-background: #f7f7eb;
+$color-success: #289e28;
+$color-danger: #c93c3c;
+$primary-font: 'Be Vietnam', sans-serif;
+$color-placeholder: #F3F3F3;
+$color-menu-item-background: transparent;
+$color-menu-item-color: white;
+$color-sidebar-background: #1C6E8C;
+$color-sidebar-background-hover: #0B2833;
+$color-list-bullet: #0B2833;
+
+@mixin flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-horizontal {
+    display: flex;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background: $color-app-background;
+}
+
+h1, h2, h3, h4, p, span, a, li{
+    font-family: $primary-font;
+}
+
+// Basic container structure
+.app{
+    @include flex-horizontal;
+    width: 100%;
+    margin: auto;
+    aside{
+        width: 25%;
+        padding: 15px 0px 15px 0;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        background: $color-sidebar-background;
+    }
+
+    main{
+        @include flex-vertical;
+        width: 65%;
+        height: 100vh;
+        padding: 20px;
+        
+    }
+}
