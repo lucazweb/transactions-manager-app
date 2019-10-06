@@ -1,55 +1,47 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
-const TransactionsList = () => (
-    <div class="transactions-list">
-        <h2>Transactions list</h2>
-        <div class="box">
-            <ul id="first-list">
-                <li>
-                    <span></span>
-                    <div class="title">Uber</div>
-                    <div class="price">R$ 23.99</div>
-                    <div class="time">
-                        <span>04, Out</span>
-                    </div>
-                </li>
-                <li>
-                    <span></span>
-                    <div class="title">iFood</div>
-                    <div class="price">R$ 34.78</div>
-                    <div class="time">
-                        <span>29, Set</span>
-                    </div>
-                </li>
-                                            
-                <li>
-                    <span></span>
-                    <div class="title">Uber</div>
-                    <div class="price">R$ 23.99</div>
-                    <div class="time">
-                        <span>29, Set</span>
-                    </div>
-                </li>
-                <li>
-                    <span></span>
-                    <div class="title">iFood</div>
-                    <div class="price">R$ 34.78</div>
-                    <div class="time">
-                        <span>29, Set</span>
-                    </div>
-                </li>
-                <li>
-                    <span></span>
-                    <div class="title">Padaria Novo Pão</div>
-                    <div class="price">R$ 12.39</div>
-                    <div class="time">
-                        <span>29, Set</span>
-                    </div>
-                </li>  
-            </ul>
-        </div> 
+const TransactionsList = ({transactions}) => (
+    
+    <div className="transactions-list">
+        {
+            transactions.length > 0 ? (
+                <Fragment>
+                    <h2>Transactions list</h2>
+                    <div className="box">
+                        <ul id="first-list">
+                        {
+                            transactions.map(transaction => (
+                                <li key={transaction.id}>
+                                    <span></span>
+                                    <div className="title">{transaction.data.description}</div>
+                                    <div className="price">R$ {transaction.data.value}</div>
+                                    <div className="time">
+                                        <span>04, Out</span>
+                                    </div>
+                                </li>
+                            ))
+                        }
+
+                        </ul>
+                    </div>                 
+                </Fragment>
+            ) : (<p> Sem transações realizadas, <Link to='/new-transaction'>Adicionar </Link> </p>)
+        }
     </div> 
 );
 
-export default TransactionsList;
+const mapStateToProps = function(state){
+    console.log(state);
+    return {
+        transactions: state.transactions.transactions
+    }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators(transactionActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsList);

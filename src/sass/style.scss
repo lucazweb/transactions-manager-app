@@ -51,9 +51,10 @@ h1, h2, h3, h4, p, span, a, li{
 
     main{
         @include flex-vertical;
-        width: 65%;
+        width: 75%;
         height: 100vh;
         padding: 20px;
+        overflow: auto;
         
     }
 }

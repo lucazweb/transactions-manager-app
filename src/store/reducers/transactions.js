@@ -9,23 +9,43 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action){
     switch(action.type){
         case types.GET_TRANSACTIONS_REQUEST:
-            return {...state, loading: true}
+            return {
+              ...state, 
+              loading: true
+            }
 
         case types.GET_TRANSACTIONS_SUCCESS:
-            
-            return {...state, transactions: action.payload, loading: false}
+            return {
+              ...state, 
+              transactions: [...action.payload], 
+              loading: false
+            }
 
         case types.GET_TRANSACTIONS_FAILURE:
-            return {...state, error: action.payload, loading: false}
+            return {
+              ...state, 
+              error: action.payload, 
+              loading: false
+            }
 
         case types.ADD_TRANSACTION_REQUEST:
-            return {...state, loading: true}
+            return {
+              ...state, 
+              loading: true
+            }
 
         case types.ADD_TRANSACTION_SUCCESS:
-            return {...state, loading: false, transactions:[...state.transactions, action.payload ] }
+            return {
+              ...state, 
+              loading: false, 
+              transactions:[...state.transactions, action.payload ]
+            }
 
         case types.ADD_TRANSACTION_FAILURE:
-            return {...state, error: action.payload}
+            return {
+              ...state, 
+              error: action.payload
+            }
 
         default:
             return state;
