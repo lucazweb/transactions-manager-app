@@ -1,4 +1,7 @@
 import React from 'react';
+// import firebase from 'firebase';
+// import Fire from '../../config/Fire';
+import { SaveTransaction } from '../../service/FireService';
 import { connect } from 'react-redux';
 import { customHistory } from '../../Wrapper';
 import { bindActionCreators } from 'redux';
@@ -7,7 +10,7 @@ import './style.scss';
 
 let defaultCategory = 'Credit';
 
-const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess) => {
+const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, addTransactionFailure) => {
     event.preventDefault();
     
     let form = event.target;
@@ -36,19 +39,23 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess) 
 
     if(descriptionValidation(transaction.description) && categoryValidation(transaction.category) && transaction.value){
         addTransactionReq();
-        addTransactionSuccess({
-            description: event.target.description.value,
-            value: event.target.value.value,
-            category: event.target.category.value
-        });
-
-        ['description', 'value'].forEach(field => form[field].value = '');
+        SaveTransaction(transaction)
+            .then(res => {
+                addTransactionSuccess({
+                    id: res.id,
+                    data: {
+                        description: transaction.description,
+                        value: transaction.value,
+                        cateogory: transaction.category
+                    }
+                });
+                ['description', 'value'].forEach(field => form[field].value = '');
+            }).catch(err => console.log('FirebaseError', err));
 
     } else {
         // validation error
         console.error('Validation Error');
     }
-    
 }
 
 const handleCategoryValue = e => {
@@ -59,10 +66,10 @@ const handleCancelRequest = () => {
     customHistory.push('/');
 }
 
-const TransactionsForm = ({ addTransactionReq, addTransactionSuccess }) => (
+const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransactionFailure }) => (
     <div className="transactions-form">
         <h2>Register a new transaction</h2>
-        <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess)}}>
+        <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess, addTransactionFailure)}}>
             <div className="group">      
                 <input autoComplete="off" name="description" type="text" required />
                 <span className="highlight"></span>

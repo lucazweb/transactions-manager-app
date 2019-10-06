@@ -12,3 +12,4 @@ const config = {
   };
 
   const Fire = firebase.initializeApp(config);
+  export default Fire;
