@@ -12,8 +12,9 @@ export default function(state = INITIAL_STATE, action){
             return {...state, loading: true}
 
         case types.GET_TRANSACTIONS_SUCCESS:
-            
-            return {...state, transactions: action.payload, loading: false}
+            console.log('GET_TRANSACTIONS_SUCESSS');
+            console.log(action.payload);
+            return {...state, transactions: [...action.payload], loading: false}
 
         case types.GET_TRANSACTIONS_FAILURE:
             return {...state, error: action.payload, loading: false}

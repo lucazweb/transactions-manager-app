@@ -50,6 +50,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
                     }
                 });
                 ['description', 'value'].forEach(field => form[field].value = '');
+                customHistory.push('/');
             }).catch(err => console.log('FirebaseError', err));
 
     } else {

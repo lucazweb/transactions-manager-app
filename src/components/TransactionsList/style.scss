@@ -37,7 +37,7 @@ $color-list-bullet: #0B2833;
             }
 
             li{
-                margin: 25px 60px 20px;
+                margin: 20px 60px 20px;
                 position: relative;
                 padding: 0px 10px;
                 color:#333;
@@ -47,12 +47,12 @@ $color-list-bullet: #0B2833;
                 .title{
                     text-transform: uppercase;
                     font-weight: 700;
-                    margin-bottom: 5px;
+                    margin-bottom: 0;
                     font-size: 0.9em;
                     &:first-letter{text-transform: capitalize;line-height: 1.7}
                 }    
                 .price{
-                    font-size: 1.4em;
+                    font-size: 1.1em;
                     display: initial;
                 }    
                 .time {
