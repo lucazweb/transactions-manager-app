@@ -12,7 +12,9 @@ export const customHistory = createBrowserHistory();
 
 class Wrapper extends React.Component{
     componentWillMount(){
-        console.log('App running');
+        
+        this.props.getTransactionsReq();
+      
         GetTransactions()
             .then(snapshot => {
                 

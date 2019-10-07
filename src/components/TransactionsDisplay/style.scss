@@ -1,3 +1,6 @@
+//BREAKPOINTS
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+
 @mixin flex-vertical {
     display: flex;
     flex-direction: column;
@@ -13,15 +16,28 @@
     width: 80%;
     padding: 15px;
     border: 1px solid #333;
+
+    @media #{$mq-smartphones-portrait-landscape} {
+      width: 100%;
+    }   
+    
+    
     .transaction-display-item{
         @include flex-vertical;
         width: 250px;
         h2{
             margin: 0;
-            padding: 0
+            padding: 0;
+            @media #{$mq-smartphones-portrait-landscape} {
+              font-size: 0.8em;
+            }               
+            
         }
         span{
             font-size: 2em;
+            @media #{$mq-smartphones-portrait-landscape} {
+              font-size: 1em;
+            }                 
         }
 
     }

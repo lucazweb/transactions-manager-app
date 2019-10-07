@@ -1,0 +1,75 @@
+// COLORS
+$color-app-background: #f7f7eb;
+$color-success: #289e28;
+
+// BREAKPOINTS
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+
+@mixin flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-horizontal {
+    display: flex;
+}
+
+.transactions-placeholder{
+  width: 80%;
+  display: flex;
+  margin-top: 20px;
+  @media #{$mq-smartphones-portrait-landscape} {
+    width: 100%;
+    @include flex-vertical();
+    flex-flow: column-reverse;
+  }  
+  .welcome{
+    width:77%;
+    @media #{$mq-smartphones-portrait-landscape} {
+      width: 100%;
+    }
+    h2{
+      margin-top: 35px;
+      @media #{$mq-smartphones-portrait-landscape} {
+        text-align: center;
+      }      
+    }
+    .btn{
+      @include flex-horizontal();
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 250px;
+      border: 1.5px solid #333;
+      text-decoration: none;
+      color: #333;
+      background: $color-app-background;
+      cursor: pointer;
+      // Smartphones media queries
+      @media #{$mq-smartphones-portrait-landscape} {
+        width: 100%;
+      }
+    }
+    .btn-start{
+      margin-top: 30px;
+      font-size: 0.9em;
+      &:hover{
+        border: 1.5px solid $color-success;
+        color: $color-success;
+      }
+    }  
+  }
+
+  .desktop-only{
+    @media #{$mq-smartphones-portrait-landscape} {
+      display: none;
+    }
+  }
+  .mobile-only{
+    display: none;
+    @media #{$mq-smartphones-portrait-landscape} {
+      display: block;
+    }
+  }
+
+}

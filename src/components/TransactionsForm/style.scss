@@ -1,8 +1,13 @@
+// TRANSACTIONS FORM STYLES *
 
+// COLORS
 $color-app-background: #f7f7eb;
 $primary-font: 'Be Vietnam', sans-serif;
 $color-success: #289e28;
 $color-danger: #d32f2f;
+
+// BREAKPOINTS
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
 
 @mixin flex-vertical {
     display: flex;
@@ -17,16 +22,30 @@ $color-danger: #d32f2f;
 // Transactions form
 .transactions-form{    
     width: 80%;
-    
+    // Smartphones media query
+    @media #{$mq-smartphones-portrait-landscape} {
+      width: 100%;
+    }
     .group-row{
-        @include flex-horizontal;
+        @include flex-horizontal();
         justify-content: space-between;
+        @media #{$mq-smartphones-portrait-landscape} {
+          @include flex-vertical()
+        }           
     }
 
     .group-btns{ 
         @include flex-horizontal();
+        // Smartphones media queries
+        @media #{$mq-smartphones-portrait-landscape} {
+          @include flex-vertical();
+        }        
         .btn{
             margin: 10px;
+            // Smartphones media queries
+            @media #{$mq-smartphones-portrait-landscape} {
+              margin: 0 0 14px 0;
+            }
         }
     }
 
@@ -106,7 +125,7 @@ $color-danger: #d32f2f;
         }  
         
         .btn{
-            @include flex-horizontal;
+            @include flex-horizontal();
             align-items: center;
             justify-content: center;
             height: 50px;
@@ -115,6 +134,10 @@ $color-danger: #d32f2f;
             font-size: 1em;
             background: $color-app-background;
             cursor: pointer;
+            // Smartphones media queries
+            @media #{$mq-smartphones-portrait-landscape} {
+              width: 100%;
+            }
         }
 
         .btn-save-transactions{
