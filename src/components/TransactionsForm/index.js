@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase  from 'firebase';
 import { SaveTransaction } from '../../service/FireService';
 import { connect } from 'react-redux';
 import { customHistory } from '../../Wrapper';
@@ -37,6 +38,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
 
     if(descriptionValidation(transaction.description) && categoryValidation(transaction.category) && transaction.value){
         addTransactionReq();
+        transaction.timestamp = firebase.firestore.Timestamp.fromDate(new Date());
         SaveTransaction(transaction)
             .then(res => {
                 transaction.id = res.id;
@@ -44,7 +46,8 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
                   id: res.id,
                   data: {
                     description: transaction.description,
-                    value: transaction.value
+                    value: transaction.value,
+                    timestamp: transaction.timestamp
                   }
                 });
                 ['description', 'value'].forEach(field => form[field].value = '');

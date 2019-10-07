@@ -1,4 +1,5 @@
 $color-list-bullet: #0B2833;
+$color-item-hover: #1C6E8C;
 
 @mixin flex-vertical {
     display: flex;
@@ -33,7 +34,7 @@ $color-list-bullet: #0B2833;
                 border:1px dashed #333;
                 position: absolute;
                 top:5px;
-                left:30px
+                left:50px
             }
 
             li{
@@ -41,9 +42,12 @@ $color-list-bullet: #0B2833;
                 position: relative;
                 padding: 0px 10px;
                 color:#333;
-                border-radius: 10px;
                 line-height: 20px;
                 width: 35%;
+                cursor: pointer;
+                &:hover{
+                   color: $color-item-hover;
+                }
                 .title{
                     text-transform: uppercase;
                     font-weight: 700;
@@ -74,7 +78,7 @@ $color-list-bullet: #0B2833;
                 border:1px solid #333;
                 position: absolute;
                 top:12px;
-                left:-30px;
+                left:-10px;
                 &:before{
                     content: "";
                     display: block;
