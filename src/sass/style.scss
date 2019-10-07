@@ -13,6 +13,8 @@ $color-sidebar-background: #1C6E8C;
 $color-sidebar-background-hover: #0B2833;
 $color-list-bullet: #0B2833;
 
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+
 @mixin flex-vertical {
     display: flex;
     flex-direction: column;
@@ -47,6 +49,9 @@ h1, h2, h3, h4, p, span, a, li{
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         background: $color-sidebar-background;
+        @media #{$mq-smartphones-portrait-landscape} {
+          display: none;
+        }
     }
 
     main{
@@ -55,6 +60,9 @@ h1, h2, h3, h4, p, span, a, li{
         height: 100vh;
         padding: 20px;
         overflow: auto;
-        
+        @media #{$mq-smartphones-portrait-landscape} {
+          width: 100%;
+        }        
+
     }
 }

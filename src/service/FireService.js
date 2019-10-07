@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import Fire from '../config/Fire';
 
 export const GetTransactions = () => {
