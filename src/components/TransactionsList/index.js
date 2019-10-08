@@ -34,7 +34,12 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                                     </div>
                                     <div className="price">R$ {transaction.data.value}</div>
                                     <div className="time">
-                                        <span>{handleTransactionsDate(transaction.data.timestamp)}</span> 
+                                        <span>
+                                          {handleTransactionsDate(transaction.data.timestamp)}
+                                          <div className={transaction.data.category === 'Credit' ? 'credit' : 'debit'}>
+                                            {transaction.data.category}
+                                          </div> 
+                                        </span> 
                                     </div>
                                     
                                 </li>

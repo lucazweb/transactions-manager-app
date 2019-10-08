@@ -8,11 +8,11 @@ import './style.scss';
 const TransactionsDisplay = ({transactions, total, loading}) => (
   <div className="total-amount-display">
     <div className="transaction-display-item">
-        <h2>Credit</h2>
+        <h2>Credit <div className="bullet credit"></div></h2>
         <span> R$  {total.credit} </span>            
     </div>
     <div className="transaction-display-item">
-        <h2>Debit</h2>
+        <h2>Debit <div className="bullet debit"></div></h2>
         <span> R$ {total.debit}</span>
     </div>
     <div className="transaction-display-item">
