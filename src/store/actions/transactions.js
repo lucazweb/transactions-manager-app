@@ -41,3 +41,15 @@ export const removeTransactionFailure = error => ({
     type: types.REMOVE_TRANSACTION_FAILURE,
     payload: error
 });
+
+export const selectTransaction = transaction => ({
+    type: types.SELECT_TRANSACTION,
+    payload: transaction
+});
+
+export const clearTransaction = () => ({
+    type: types.CLEAR_TRANSACTION,
+});
+
+
+

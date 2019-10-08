@@ -60,9 +60,32 @@ h1, h2, h3, h4, p, span, a, li{
         height: 100vh;
         padding: 20px;
         overflow: auto;
+
+        animation-name: viewTransition;
+        animation-duration: 1s; /* or: Xms */
+
+        animation-direction: normal; /* or: normal */
+        animation-timing-function: ease-out; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+        animation-fill-mode: forwards; /* or: backwards, both, none */
+        
         @media #{$mq-smartphones-portrait-landscape} {
           width: 100%;
         }        
 
     }
 }
+
+@-webkit-keyframes viewTransition {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes viewTransition {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes viewTransition {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+

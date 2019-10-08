@@ -9,9 +9,9 @@ const HomeView = ({loading}) => (
     <Fragment>
         <Sidebar />
         <main>
-          {
+          {/* {
             loading && (<Spinner />)
-          }
+          } */}
             <TransactionsDisplay />
             <TransactionsList />
         </main>
