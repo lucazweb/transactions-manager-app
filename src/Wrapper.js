@@ -11,10 +11,10 @@ import * as transactionActions from './store/actions/transactions';
 export const customHistory = createBrowserHistory();
 
 class Wrapper extends React.Component{
-    componentWillMount(){
+    componentDidMount(){
         
         this.props.getTransactionsReq();
-      
+
         GetTransactions()
             .then(snapshot => {
                 

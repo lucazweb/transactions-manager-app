@@ -22,7 +22,6 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
 
     function descriptionValidation(description){
         let pattern = /[!@#$%^&*(),.?":{}|<>]/g;
-        console.log(description, pattern.test(description));
         if(description && !pattern.test(description)){
             return true
         }
@@ -47,6 +46,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
                   data: {
                     description: transaction.description,
                     value: transaction.value,
+                    category: transaction.category,
                     timestamp: transaction.timestamp
                   }
                 });
@@ -80,7 +80,7 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
             </div>                                                        
             <div className="group-row">
                 <div className="group">      
-                    <input autoComplete="off" name="value" type="number" min="1" required />
+                    <input autoComplete="off" name="value" type="number" min="1" step=".01" required />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label>Value</label>
@@ -101,7 +101,6 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
 );
 
 const mapStateToProps = function(state){
-    console.log(state);
     return {
         state,
     }
