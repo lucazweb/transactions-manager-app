@@ -10,6 +10,8 @@ const INITIAL_STATE = {
     validationMessage: null,
     loading: false,
     selectedTransaction: null,
+    isMobileMenuOpen: false,
+    currentView: 'Dashboard'
 };
 
 const handleAmount = (transactions, category) => {
@@ -67,7 +69,7 @@ export default function(state = INITIAL_STATE, action){
                 credit: handleSingleAdition(Object.assign({}, state), action.payload, 'Credit'),
                 debit: handleSingleAdition(Object.assign({}, state), action.payload, 'Debit'),
               },
-              transactions:[...state.transactions, action.payload],
+              transactions:[action.payload, ...state.transactions],
               validationMessage: null,
               
             }
@@ -108,6 +110,21 @@ export default function(state = INITIAL_STATE, action){
             return {
               ...state,
               validationMessage: action.payload
+            }
+
+        case types.MOBILE_MENU_TOGGLE:
+
+            let copy = Object.assign({}, state);
+
+            return {
+              ...state,
+              isMobileMenuOpen: !copy.isMobileMenuOpen
+            }
+
+        case types.SET_CURRENT_VIEW:
+            return {
+              ...state,
+              currentView: action.payload
             }
 
         default:

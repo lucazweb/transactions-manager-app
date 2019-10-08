@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import firebase  from 'firebase';
 import { descriptionValidation, categoryValidation, valueValidation } from './ValidationHelper';
 import { SaveTransaction } from '../../service/FireService';
@@ -89,6 +90,14 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
         </form>
     </div>    
 );
+
+TransactionsForm.propTypes = {
+  addTransactionsReq: PropTypes.func,
+  addTransactionsSuccess: PropTypes.func,
+  addTransactionFailure: PropTypes.func,
+  validationMessage: PropTypes.string,
+  validationError: PropTypes.func
+}
 
 const mapStateToProps = ({transactions}) => ({
   validationMessage: transactions.validationMessage

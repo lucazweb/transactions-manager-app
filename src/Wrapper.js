@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { createBrowserHistory } from 'history';
 import { Router, Route } from 'react-router-dom';
 import { GetTransactions } from './service/FireService';
+import MobileNavigation from './components/MobileNavigation';
 import HomeView from './views/HomeView';
 import NewTransactionView from './views/NewTransactionView';
 import * as transactionActions from './store/actions/transactions';
@@ -34,6 +35,7 @@ class Wrapper extends React.Component{
         return (
           <div className="app">
               <Router history={customHistory}>
+                <MobileNavigation />
                 <Route exact path='/' component={HomeView} />
                 <Route exact path='/new-transaction' component={NewTransactionView} />
               </Router>

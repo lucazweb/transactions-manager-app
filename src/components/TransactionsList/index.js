@@ -1,25 +1,22 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
-import 'moment/locale/pt-br';
-import firebase from 'firebase';
+import Placeholder from '../Placeholder';
+import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
+import { TimestampToDate } from '../../service/FireService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Placeholder from '../Placeholder';
-import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
-moment.locale('pt-br');
-
 const handleTransactionsDate = timestamp => {
-  let time = new firebase.firestore.Timestamp(timestamp.seconds, timestamp.nanoseconds).toDate();
+  let time = TimestampToDate(timestamp);
   return moment(time).format('DD/MM, hh:mm');
 }
 
 const TransactionsList = ({transactions, loading, selectTransaction}) => (
-    
     <div className="transactions-list">
         {
             (!loading && transactions.length > 0) && (
@@ -31,12 +28,20 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                             transactions.map(transaction => (
                                 <li onClick={() => selectTransaction(transaction)} key={transaction.id}>
                                     <span></span>
-                                    <div className="title">{transaction.data.description}</div>
+                                    <div className="title">
+                                      {transaction.data.description}
+                                      <div onClick={() => selectTransaction(transaction)} className="remove-btn"> <FontAwesomeIcon icon={faTimes} /> </div>
+                                    </div>
                                     <div className="price">R$ {transaction.data.value}</div>
                                     <div className="time">
-                                        <span>{handleTransactionsDate(transaction.data.timestamp)}</span> 
+                                        <span>
+                                          {handleTransactionsDate(transaction.data.timestamp)}
+                                          <div className={transaction.data.category === 'Credit' ? 'credit' : 'debit'}>
+                                            {transaction.data.category}
+                                          </div> 
+                                        </span> 
                                     </div>
-                                    <div onClick={() => selectTransaction(transaction)} className="remove-btn"> <FontAwesomeIcon icon={faTimes} /> </div>
+                                    
                                 </li>
                             ))
                         }
@@ -55,6 +60,12 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
         }
     </div> 
 );
+
+TransactionsList.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+  selectTransaction: PropTypes.func
+}
 
 const mapStateToProps = function({transactions}){  
     return {

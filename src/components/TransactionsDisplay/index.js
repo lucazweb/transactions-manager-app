@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
@@ -7,11 +8,11 @@ import './style.scss';
 const TransactionsDisplay = ({transactions, total, loading}) => (
   <div className="total-amount-display">
     <div className="transaction-display-item">
-        <h2>Credit</h2>
+        <h2>Credit <div className="bullet credit"></div></h2>
         <span> R$  {total.credit} </span>            
     </div>
     <div className="transaction-display-item">
-        <h2>Debit</h2>
+        <h2>Debit <div className="bullet debit"></div></h2>
         <span> R$ {total.debit}</span>
     </div>
     <div className="transaction-display-item">
@@ -20,6 +21,15 @@ const TransactionsDisplay = ({transactions, total, loading}) => (
     </div>       
   </div>          
 );
+
+TransactionsDisplay.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+  total: PropTypes.shape({
+    credit: PropTypes.number,
+    debit: PropTypes.number
+  }),
+  loading: PropTypes.bool
+}
 
 const mapStateToProps = function({transactions}){
   return {

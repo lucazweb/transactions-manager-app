@@ -1,3 +1,7 @@
+// COLORS
+$color-credit: purple;
+$color-debit: rgb(0, 140, 255);
+
 //BREAKPOINTS
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
 
@@ -16,7 +20,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     width: 80%;
     padding: 15px;
     border: 1px solid #333;
-
+    box-shadow: 5px 6px 1px #333;
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
     }   
@@ -26,12 +30,29 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         @include flex-vertical;
         width: 250px;
         h2{
+            position: relative;
             margin: 0;
             padding: 0;
             @media #{$mq-smartphones-portrait-landscape} {
               font-size: 0.8em;
             }               
             
+            .bullet{
+              position: absolute;
+              top: 15px;
+              left: 80px;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+            }
+            .credit{
+              background: $color-credit;
+            }
+            .debit{
+              background: $color-debit;
+            }
+            
+
         }
         span{
             font-size: 2em;
