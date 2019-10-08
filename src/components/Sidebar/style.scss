@@ -22,13 +22,17 @@ aside{
         color: white;
         .user-photo{
             display: flex;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-color: $color-placeholder;
+            filter: grayscale(20%);
+            background-size: 110%;
+            background-position: center;
+            background-repeat: no-repeat;
             align-self: auto;
             flex-shrink: 0;
-            border: 1px solid #ccc;
+            border: 2px solid white;
         }
 
         .user-info{
@@ -39,6 +43,9 @@ aside{
                 font-size: 1em;
                 margin: 0;
                 padding: 0;
+            }
+            span{
+              font-size: 0.8em;
             }
         }
     }
@@ -72,16 +79,19 @@ aside{
                 }
 
                 a{
-                    @include flex-vertical();
+                    @include flex-horizontal();
 
                     height: 40px;
-                    align-items: flex-start;
-                    justify-content: center;
+                    align-items: center;
+                    justify-content: flex-start;
                     width: 100%;
                     font-size: 0.9em;
                     color: $color-menu-item-color;
                     text-decoration: none;
                     text-align: left;
+                    span{
+                      margin-left: 10px;
+                    }
                     
                 }
                 

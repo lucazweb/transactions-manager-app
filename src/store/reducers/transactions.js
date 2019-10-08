@@ -11,7 +11,7 @@ const INITIAL_STATE = {
     loading: false,
     selectedTransaction: null,
     isMobileMenuOpen: false,
-    currentView: 'Home'
+    currentView: 'Dashboard'
 };
 
 const handleAmount = (transactions, category) => {

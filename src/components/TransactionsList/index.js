@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import firebase from 'firebase';
@@ -19,7 +20,6 @@ const handleTransactionsDate = timestamp => {
 }
 
 const TransactionsList = ({transactions, loading, selectTransaction}) => (
-    
     <div className="transactions-list">
         {
             (!loading && transactions.length > 0) && (
@@ -55,6 +55,12 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
         }
     </div> 
 );
+
+TransactionsList.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+  selectTransaction: PropTypes.func
+}
 
 const mapStateToProps = function({transactions}){  
     return {

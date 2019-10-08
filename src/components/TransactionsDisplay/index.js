@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
@@ -20,6 +21,15 @@ const TransactionsDisplay = ({transactions, total, loading}) => (
     </div>       
   </div>          
 );
+
+TransactionsDisplay.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.object),
+  total: PropTypes.shape({
+    credit: PropTypes.number,
+    debit: PropTypes.number
+  }),
+  loading: PropTypes.bool
+}
 
 const mapStateToProps = function({transactions}){
   return {

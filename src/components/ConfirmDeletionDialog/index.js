@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { DeleteTransaction } from '../../service/FireService';
@@ -19,7 +20,7 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
   <Fragment>
     {
         selectedTransaction && (
-            <div class="transaction-detail-overflow">
+            <div className="transaction-detail-overflow">
                 <div className="transaction-detail-modal">
                     <button onClick={() => clearTransaction()} className="btn-close"><FontAwesomeIcon icon={faTimes} /></button>
                     <div className="transaction-modal-header">
@@ -43,6 +44,16 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
     }
   </Fragment>
 );
+
+ConfirmDeletionDialog.propTypes = {
+  selectedTransaction: PropTypes.shape({
+    id: PropTypes.string,
+    data: PropTypes.arrayOf(PropTypes.object)
+  }),
+  clearTransaction: PropTypes.func,
+  removeTransactionReq: PropTypes.func,
+  removeTransactionSuccess: PropTypes.func
+}
 
 const mapStateToProps = ({transactions}) => ({
   selectedTransaction: transactions.selectedTransaction
