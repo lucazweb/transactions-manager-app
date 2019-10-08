@@ -18,7 +18,6 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     display: flex;
 }
 
-
 // Transactions form
 .transactions-form{    
     width: 80%;
@@ -40,6 +39,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         // Smartphones media queries
         @media #{$mq-smartphones-portrait-landscape} {
           @include flex-vertical();
+          margin-top: 110px;
         }        
         .btn{
           &:first-child{

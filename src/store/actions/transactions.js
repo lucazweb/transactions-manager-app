@@ -55,3 +55,13 @@ export const validationError = error => ({
   type: types.VALIDATION_ERROR,
   payload: error
 });
+
+export const toggleMobileMenu = () => ({
+  type: types.MOBILE_MENU_TOGGLE,
+});
+
+export const setCurrentView = view => ({
+  type: types.SET_CURRENT_VIEW,
+  payload: view,
+});
+

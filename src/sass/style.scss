@@ -40,9 +40,15 @@ h1, h2, h3, h4, p, span, a, li{
 
 // Basic container structure
 .app{
-    @include flex-horizontal;
+    @include flex-horizontal();
     width: 100%;
     margin: auto;
+
+    @media #{$mq-smartphones-portrait-landscape} {
+      @include flex-vertical();
+      width: 100%;
+    }   
+
     aside{
         width: 25%;
         padding: 15px 0px 15px 0;

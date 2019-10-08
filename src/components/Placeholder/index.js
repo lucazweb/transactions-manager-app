@@ -8,7 +8,7 @@ const Placeholder = () => (
   <div className="transactions-placeholder">
     <div className="welcome"> 
       <h2> Nenhuma transação cadastrada. <br /> <small>Comece a registrar as suas transações.</small> </h2>
-      <Link to='/new-transaction' class="btn btn-start">Começar</Link>    
+      <Link to='/new-transaction' className="btn btn-start">Começar</Link>    
     </div>
     <div className="desktop-only"> 
       <Lottie options={{animationData: animation}} width="80%" />
