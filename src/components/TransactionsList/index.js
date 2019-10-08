@@ -31,12 +31,15 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                             transactions.map(transaction => (
                                 <li onClick={() => selectTransaction(transaction)} key={transaction.id}>
                                     <span></span>
-                                    <div className="title">{transaction.data.description}</div>
+                                    <div className="title">
+                                      {transaction.data.description}
+                                      <div onClick={() => selectTransaction(transaction)} className="remove-btn"> <FontAwesomeIcon icon={faTimes} /> </div>
+                                    </div>
                                     <div className="price">R$ {transaction.data.value}</div>
                                     <div className="time">
                                         <span>{handleTransactionsDate(transaction.data.timestamp)}</span> 
                                     </div>
-                                    <div onClick={() => selectTransaction(transaction)} className="remove-btn"> <FontAwesomeIcon icon={faTimes} /> </div>
+                                    
                                 </li>
                             ))
                         }

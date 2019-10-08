@@ -16,7 +16,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     width: 80%;
     padding: 15px;
     border: 1px solid #333;
-
+    box-shadow: 5px 6px 1px #333;
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
     }   

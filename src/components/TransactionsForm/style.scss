@@ -5,6 +5,7 @@ $color-app-background: #f7f7eb;
 $primary-font: 'Be Vietnam', sans-serif;
 $color-success: #289e28;
 $color-danger: #d32f2f;
+$color-highlight:rgb(23, 74, 94);
 
 // BREAKPOINTS
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
@@ -24,6 +25,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     // Smartphones media query
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
+    }
+
+    h2{
+      margin-bottom: 30px;
     }
     .group-row{
         @include flex-horizontal();
@@ -70,7 +75,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
             &:focus ~ label, &:valid ~ label {
                 top:-20px;
                 font-size:14px;
-                color:#5264AE;
+                color:$color-highlight;
             }
             // active state
             &:focus ~ .bar:before, &:focus ~ .bar:after {
@@ -111,7 +116,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
                 width:0;
                 bottom:1px; 
                 position:absolute;
-                background:#5264AE; 
+                background:$color-highlight;
                 transition:0.2s ease all; 
                 -moz-transition:0.2s ease all; 
                 -webkit-transition:0.2s ease all;
@@ -167,12 +172,12 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     }
 
     @-moz-keyframes inputHighlighter {
-        from { background:#5264AE; }
+        from { background:$color-highlight; }
         to 	{ width:0; background:transparent; }
     }
 
     @keyframes inputHighlighter {
-        from { background:#5264AE; }
+        from { background:$color-highlight; }
         to{ width:0; background:transparent; }
     }
 }
@@ -183,7 +188,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
 
     &:hover{
         input{
-            color: purple;
+            color: $color-highlight;
         }
     }
     .toggle-thrigger{

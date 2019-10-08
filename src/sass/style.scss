@@ -12,6 +12,7 @@ $color-menu-item-color: white;
 $color-sidebar-background: #1C6E8C;
 $color-sidebar-background-hover: #0B2833;
 $color-list-bullet: #0B2833;
+$color-scroll: $color-list-bullet;
 
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
 
@@ -85,7 +86,7 @@ h1, h2, h3, h4, p, span, a, li{
         }
         
         &::-webkit-scrollbar-thumb{
-          background-color: #000000;
+          background-color: $color-scroll;
           border: 2px solid #555555;
         }
 
