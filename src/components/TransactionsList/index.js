@@ -1,21 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import 'moment/locale/pt-br';
-import firebase from 'firebase';
+import Placeholder from '../Placeholder';
+import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
+import { TimestampToDate } from '../../service/FireService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Placeholder from '../Placeholder';
-import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
-moment.locale('pt-br');
-
 const handleTransactionsDate = timestamp => {
-  let time = new firebase.firestore.Timestamp(timestamp.seconds, timestamp.nanoseconds).toDate();
+  let time = TimestampToDate(timestamp);
   return moment(time).format('DD/MM, hh:mm');
 }
 

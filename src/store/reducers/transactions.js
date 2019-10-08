@@ -69,7 +69,7 @@ export default function(state = INITIAL_STATE, action){
                 credit: handleSingleAdition(Object.assign({}, state), action.payload, 'Credit'),
                 debit: handleSingleAdition(Object.assign({}, state), action.payload, 'Debit'),
               },
-              transactions:[...state.transactions, action.payload],
+              transactions:[action.payload, ...state.transactions],
               validationMessage: null,
               
             }
