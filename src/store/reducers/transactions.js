@@ -7,6 +7,7 @@ const INITIAL_STATE = {
       debit: 0,
     },
     error: null,
+    validationMessage: null,
     loading: false,
     selectedTransaction: null,
 };
@@ -67,6 +68,7 @@ export default function(state = INITIAL_STATE, action){
                 debit: handleSingleAdition(Object.assign({}, state), action.payload, 'Debit'),
               },
               transactions:[...state.transactions, action.payload],
+              validationMessage: null,
               
             }
 
@@ -100,6 +102,12 @@ export default function(state = INITIAL_STATE, action){
             return {
               ...state,
               selectedTransaction: null
+            }
+
+        case types.VALIDATION_ERROR:
+            return {
+              ...state,
+              validationMessage: action.payload
             }
 
         default:
