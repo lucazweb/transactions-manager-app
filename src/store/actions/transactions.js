@@ -51,5 +51,7 @@ export const clearTransaction = () => ({
     type: types.CLEAR_TRANSACTION,
 });
 
-
-
+export const validationError = error => ({
+  type: types.VALIDATION_ERROR,
+  payload: error
+});

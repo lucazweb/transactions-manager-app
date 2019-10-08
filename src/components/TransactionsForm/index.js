@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase  from 'firebase';
+import { descriptionValidation, categoryValidation, valueValidation } from './ValidationHelper';
 import { SaveTransaction } from '../../service/FireService';
 import { connect } from 'react-redux';
 import { customHistory } from '../../Wrapper';
@@ -9,7 +10,7 @@ import './style.scss';
 
 let defaultCategory = 'Credit';
 
-const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, addTransactionFailure) => {
+const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, addTransactionFailure, validationError) => {
     event.preventDefault();
     
     let form = event.target;
@@ -20,43 +21,28 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
         category: form.category.value
     }
 
-    function descriptionValidation(description){
-        let pattern = /[!@#$%^&*(),.?":{}|<>]/g;
-        if(description && !pattern.test(description)){
-            return true
-        }
-        return false;
-    }
-
-    function categoryValidation(category){
-        if(category.includes('Credit') || category.includes('Debit') ){
-            return true;
-        }
-        return false
-    }
-
-    if(descriptionValidation(transaction.description) && categoryValidation(transaction.category) && transaction.value){
-        addTransactionReq();
-        transaction.timestamp = firebase.firestore.Timestamp.fromDate(new Date());
-        SaveTransaction(transaction)
-            .then(res => {
-                transaction.id = res.id;
-                addTransactionSuccess({
-                  id: res.id,
-                  data: {
-                    description: transaction.description,
-                    value: transaction.value,
-                    category: transaction.category,
-                    timestamp: transaction.timestamp
-                  }
-                });
-                ['description', 'value'].forEach(field => form[field].value = '');
-                customHistory.push('/');
-            }).catch(err => console.log('FirebaseError', err));
-
-    } else {
-        // validation error
-        console.error('Validation Error');
+    try{
+        if(descriptionValidation(transaction.description) && categoryValidation(transaction.category) && valueValidation(transaction.value)){
+          addTransactionReq();
+          transaction.timestamp = firebase.firestore.Timestamp.fromDate(new Date());
+          SaveTransaction(transaction)
+              .then(res => {
+                  transaction.id = res.id;
+                  addTransactionSuccess({
+                    id: res.id,
+                    data: {
+                      description: transaction.description,
+                      value: transaction.value,
+                      category: transaction.category,
+                      timestamp: transaction.timestamp
+                    }
+                  });
+                  ['description', 'value'].forEach(field => form[field].value = '');
+                  customHistory.push('/');
+              }).catch(err => console.log('FirebaseError', err));
+      }
+    } catch(e){
+      validationError(e.message);
     }
 }
 
@@ -68,19 +54,20 @@ const handleCancelRequest = () => {
     customHistory.push('/');
 }
 
-const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransactionFailure }) => (
+const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransactionFailure, validationMessage, validationError }) => (
     <div className="transactions-form">
         <h2>Register a new transaction</h2>
-        <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess, addTransactionFailure)}}>
+
+        <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess, addTransactionFailure, validationError)}}>
             <div className="group">      
-                <input autoComplete="off" name="description" type="text" required />
+                <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="description" type="text" required />
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label>Description</label>
             </div>                                                        
             <div className="group-row">
                 <div className="group">      
-                    <input autoComplete="off" name="value" type="number" min="1" step=".01" required />
+                    <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="value" type="number" min="0.5" step=".01" required />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label>Value</label>
@@ -92,6 +79,9 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
                     <span className="bar"></span>
                 </div>                            
             </div>
+            {
+              validationMessage && (<span className="error-message"> {validationMessage} </span>)
+            }            
             <div className="group group-btns">
                 <button type="submit" className="btn btn-save-transactions">Save Transaction</button>
                 <button onClick={() => handleCancelRequest()} className="btn btn-cancel-transactions">Cancel Transaction</button>
@@ -100,11 +90,9 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
     </div>    
 );
 
-const mapStateToProps = function(state){
-    return {
-        state,
-    }
-}
+const mapStateToProps = ({transactions}) => ({
+  validationMessage: transactions.validationMessage
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators(transactionActions, dispatch);
 

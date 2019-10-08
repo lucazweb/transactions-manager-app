@@ -73,12 +73,16 @@ aside{
 
                 a{
                     @include flex-vertical();
-                    display: block;
-                    align-items: center;
+
+                    height: 40px;
+                    align-items: flex-start;
+                    justify-content: center;
                     width: 100%;
                     font-size: 0.9em;
                     color: $color-menu-item-color;
                     text-decoration: none;
+                    text-align: left;
+                    
                 }
                 
             }
