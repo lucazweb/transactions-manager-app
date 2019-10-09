@@ -25,6 +25,8 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
 
 // Transactions form
 .transactions-form{    
+    @include flex-vertical();
+    justify-content: space-between;
     width: 80%;
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
@@ -49,10 +51,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
 
     .group-btns{ 
         @include flex-horizontal();
-        margin-top: $desktop-default-space;
+        margin-top: 70px;
         @media #{$mq-smartphones-portrait-landscape} {
           @include flex-vertical();
-          margin-top: 110px;
+          margin-top: 130px;
         }        
         .btn{
           margin: 10px;
