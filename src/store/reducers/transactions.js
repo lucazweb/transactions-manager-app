@@ -19,12 +19,15 @@ const handleAmount = (transactions, category) => {
   return filter.reduce((sum, transaction) => sum + transaction.data.value, 0)
 }
 
-const handleSingleAdition = (state, transaction, category) => {
+const handleCategoryAmount = (state, transaction, category, operation = 'add') => {
   let total = Object.assign({}, state.total);
   let key = category.toLowerCase();
   
   if(transaction.data.category === category){
-    return total[key] + transaction.data.value
+    if(operation === 'add'){
+      return total[key] + transaction.data.value
+    }
+    return total[key] - transaction.data.value
   }
   return total[key]
 }
@@ -66,8 +69,8 @@ export default function(state = INITIAL_STATE, action){
               ...state, 
               loading: false, 
               total:{
-                credit: handleSingleAdition(Object.assign({}, state), action.payload, 'Credit'),
-                debit: handleSingleAdition(Object.assign({}, state), action.payload, 'Debit'),
+                credit: handleCategoryAmount(Object.assign({}, state), action.payload, 'Credit'),
+                debit: handleCategoryAmount(Object.assign({}, state), action.payload, 'Debit'),
               },
               transactions:[action.payload, ...state.transactions],
               validationMessage: null,
@@ -83,8 +86,12 @@ export default function(state = INITIAL_STATE, action){
         case types.REMOVE_TRANSACTION_SUCCESS:
             return {
               ...state,
-              transactions: state.transactions.filter(t => t.id !== action.payload),
+              transactions: state.transactions.filter(obj => obj.id !== action.payload),
               loading: false,
+              total:{
+                credit: handleCategoryAmount(Object.assign({}, state), action.payload, 'Credit', 'remove'),
+                debit: handleCategoryAmount(Object.assign({}, state), action.payload, 'Debit', 'remove'),
+              },              
               selectedTransaction: null,
             }
 

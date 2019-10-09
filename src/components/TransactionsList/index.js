@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import Placeholder from '../Placeholder';
-import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
 import { Link } from 'react-router-dom';
 import { TimestampToDate } from '../../service/FireService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import * as formatCurrency from 'format-currency-to-br';
+import moment from 'moment';
+import Placeholder from '../Placeholder';
+import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
@@ -33,7 +34,7 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                                       {transaction.data.description}
                                       <div onClick={() => selectTransaction(transaction)} className="remove-btn"> <FontAwesomeIcon icon={faTimes} /> </div>
                                     </div>
-                                    <div className="price">R$ {transaction.data.value}</div>
+                                    <div className="price"> {formatCurrency(transaction.data.value)}</div>
                                     <div className="time">
                                         <span>
                                           {handleTransactionsDate(transaction.data.timestamp)}

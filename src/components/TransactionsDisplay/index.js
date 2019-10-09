@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import * as formatCurrency from 'format-currency-to-br';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
@@ -9,15 +10,15 @@ const TransactionsDisplay = ({transactions, total, loading}) => (
   <div className="total-amount-display">
     <div className="transaction-display-item">
         <h2>Credit <div className="bullet credit"></div></h2>
-        <span> R$  {total.credit} </span>            
+        <span>{formatCurrency(total.credit)} </span>            
     </div>
     <div className="transaction-display-item">
         <h2>Debit <div className="bullet debit"></div></h2>
-        <span> R$ {total.debit}</span>
+        <span> {formatCurrency(total.debit)}</span>
     </div>
     <div className="transaction-display-item">
         <h2>Total amount</h2>
-        <span>R$ {transactions.reduce((sum, transaction) => sum + transaction.data.value, 0)}</span>
+        <span>{formatCurrency(transactions.reduce((sum, transaction) => sum + transaction.data.value, 0))}</span>
     </div>       
   </div>          
 );

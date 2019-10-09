@@ -9,10 +9,10 @@ import * as transactionActions from '../../store/actions/transactions';
 
 import './style.scss';
 
-const handleTransactionDelete = (id, removeTransactionReq, removeTransactionSuccess) => {
-  DeleteTransaction(id)
+const handleTransactionDelete = (selectedTransaction, removeTransactionReq, removeTransactionSuccess) => {
+  DeleteTransaction(selectedTransaction.id)
     .then((res) => {
-      removeTransactionSuccess(id);
+      removeTransactionSuccess(selectedTransaction);
     }).catch(err => console.error(err));
 }
 
@@ -33,7 +33,7 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
                     </div>
     
                     <div className="transaction-modal-footer">
-                        <button onClick={() => handleTransactionDelete(selectedTransaction.id, removeTransactionReq, removeTransactionSuccess) }  className="btn btn-remove-transaction">
+                        <button onClick={() => handleTransactionDelete(selectedTransaction, removeTransactionReq, removeTransactionSuccess) }  className="btn btn-remove-transaction">
                             <FontAwesomeIcon icon={faTrash} /> 
                             <span>Yes, remove the transaction</span>
                         </button>                             

@@ -19,7 +19,7 @@ const Sidebar = () => (
             <ul>
                 <li><Link to='/'> <FontAwesomeIcon icon={faWallet} /> <span>Dashboard </span></Link></li>
                 <li><Link to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>Add Transaction </span></Link></li>
-                <li><a><FontAwesomeIcon icon={faSignOutAlt} /><span>Signout</span></a></li>
+                <li><Link><FontAwesomeIcon icon={faSignOutAlt} /><span>Signout</span></Link></li>
             </ul>
         </nav>
     </aside>    
