@@ -17,7 +17,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
 .transactions-placeholder{
   width: 80%;
   display: flex;
-  margin-top: 20px;
+  flex-direction: column-reverse;
   @media #{$mq-smartphones-portrait-landscape} {
     @include flex-vertical();
     width: 100%;
@@ -25,7 +25,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     flex-flow: column-reverse;
   }  
   .welcome{
-    width:77%;
+    width:100%;
     @include flex-vertical();
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
@@ -36,7 +36,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       }
     }
     h2{
-      margin-top: 35px;
+      margin-top: 0;
       @include flex-vertical();
       @media #{$mq-smartphones-portrait-landscape} {
         text-align: center;
@@ -48,6 +48,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       justify-content: center;
       height: 50px;
       width: 250px;
+      margin: auto;
       border: 1.5px solid #333;
       text-decoration: none;
       color: #333;
@@ -59,8 +60,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       }
     }
     .btn-start{
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 0.9em;
+      font-weight: bold;
+      transition: all ease 0.3s;
       &:hover{
         border: 1.5px solid $color-success;
         color: $color-success;
@@ -69,6 +72,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
   }
 
   .desktop-only{
+    margin-top: -20px;
     @media #{$mq-smartphones-portrait-landscape} {
       display: none;
     }

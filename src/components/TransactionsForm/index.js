@@ -61,21 +61,21 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
 
         <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess, addTransactionFailure, validationError)}}>
             <div className="group">      
-                <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="description" type="text" required />
+                <input data-test="description" className={validationMessage ? 'invalid' : ''} autoComplete="off" name="description" type="text" required />
                 <span className="highlight"></span>
                 <span className="bar"></span>
                 <label>Descrição</label>
             </div>                                                        
             <div className="group-row">
                 <div className="group">      
-                    <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="value" type="number" min="0.5" step=".01" required />
+                    <input data-test="value" className={validationMessage ? 'invalid' : ''} autoComplete="off" name="value" type="number" min="0.5" step=".01" required />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                     <label>Valor</label>
                 </div>                                  
 
                 <div className="group group-toogle-type">  
-                    <input id="category" readOnly="readonly" onClick={e => handleCategoryValue(e)} name="category" type="text" defaultValue={defaultCategory} />
+                    <input data-test="category" id="category" readOnly="readonly" onClick={e => handleCategoryValue(e)} name="category" type="text" defaultValue={defaultCategory} />
                     <span className="highlight"></span>
                     <span className="bar"></span>
                 </div>                            
@@ -84,7 +84,7 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
               validationMessage && (<span className="error-message"> {validationMessage} </span>)
             }            
             <div className="group group-btns">
-                <button type="submit" className="btn btn-save-transactions">Salvar transação</button>
+                <button data-test="savebtn" type="submit" className="btn btn-save-transactions">Salvar transação</button>
                 <button onClick={() => handleCancelRequest()} className="btn btn-cancel-transactions">Cancelar</button>
             </div>
         </form>

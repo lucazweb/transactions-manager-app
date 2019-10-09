@@ -6,6 +6,7 @@ import { DeleteTransaction } from '../../service/FireService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import * as transactionActions from '../../store/actions/transactions';
+import * as formatCurrency from 'format-currency-to-br';
 
 import './style.scss';
 
@@ -29,7 +30,7 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
     
                     <div className="transaction-modal-body">
                         <p>Deseja remover esse item?</p>
-                        <p>  <strong>{selectedTransaction.data.description} - R$ {selectedTransaction.data.value}</strong> </p>
+                        <p>  <strong>{selectedTransaction.data.description} - {formatCurrency(selectedTransaction.data.value)}</strong> </p>
                     </div>
     
                     <div className="transaction-modal-footer">

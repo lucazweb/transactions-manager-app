@@ -1,5 +1,7 @@
 // COLORS
 $color-app-background: #f7f7eb;
+$color-sidebar-background: #1C6E8C;
+$color-highlight:rgb(23, 74, 94);
 
 // * Smartphones 
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 1024px)";
@@ -28,9 +30,9 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         align-items: center;
         width: 100%;
         height: 40px;
-        background: #333;
+        background: $color-sidebar-background;
         color: white;
-
+        z-index: 1001;
         .mobile-menu-thrigger{
             display: flex;
             justify-content: center;
@@ -65,18 +67,18 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         top: 40px;
         left: -100vw;
         z-index: 1000;
-        background: #333;
+        background: $color-sidebar-background;
         transition: all ease 0.4s;
         animation-name: mobileMenuClose;
 
         .close-back-menu{
-          background: #333;
+          background: $color-sidebar-background;
           width: 80px;
           height: 80px;
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 7px solid $color-app-background;
+          border: 7px solid $color-highlight;
           border-radius: 50%;
           position: absolute;
           left: 70vw;
@@ -150,8 +152,14 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
                 font-size: 0.8em;
               }
           }
-      }        
-        
+      }            
+    }
+    .nav-overflow{
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.8);
     }
 }
 
