@@ -26,6 +26,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
   }  
   .welcome{
     width:77%;
+    @include flex-vertical();
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
       h2{
@@ -36,6 +37,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     }
     h2{
       margin-top: 35px;
+      @include flex-vertical();
       @media #{$mq-smartphones-portrait-landscape} {
         text-align: center;
       }      

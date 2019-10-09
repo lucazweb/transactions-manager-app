@@ -40,17 +40,21 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
             .bullet{
               position: absolute;
               top: 15px;
-              left: 80px;
+              left: 81.5px;
               width: 8px;
               height: 8px;
               border-radius: 50%;
               @media #{$mq-smartphones-portrait-landscape} {
                 top: 5px;
-                left: 50px;
+                left: 45px;
               }               
             }
             .credit{
               background: $color-credit;
+              left: 90px;
+              @media #{$mq-smartphones-portrait-landscape} {
+                left: 50px;
+              }
             }
             .debit{
               background: $color-debit;

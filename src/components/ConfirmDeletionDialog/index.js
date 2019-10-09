@@ -24,18 +24,18 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
                 <div className="transaction-detail-modal">
                     <button onClick={() => clearTransaction()} className="btn-close"><FontAwesomeIcon icon={faTimes} /></button>
                     <div className="transaction-modal-header">
-                        <h2 className="title"> Delete transaction</h2>
+                        <h2 className="title"> Remover transação</h2>
                     </div>
     
                     <div className="transaction-modal-body">
-                        <p>Do you want delete this transaction?</p>
-                        <p>{selectedTransaction.data.description} - R$ {selectedTransaction.data.value} </p>
+                        <p>Deseja remover esse item?</p>
+                        <p>  <strong>{selectedTransaction.data.description} - R$ {selectedTransaction.data.value}</strong> </p>
                     </div>
     
                     <div className="transaction-modal-footer">
                         <button onClick={() => handleTransactionDelete(selectedTransaction, removeTransactionReq, removeTransactionSuccess) }  className="btn btn-remove-transaction">
                             <FontAwesomeIcon icon={faTrash} /> 
-                            <span>Yes, remove the transaction</span>
+                            <span>Sim, tenho certeza</span>
                         </button>                             
                     </div>
                 </div>
@@ -48,7 +48,15 @@ const ConfirmDeletionDialog = ({selectedTransaction, clearTransaction, removeTra
 ConfirmDeletionDialog.propTypes = {
   selectedTransaction: PropTypes.shape({
     id: PropTypes.string,
-    data: PropTypes.arrayOf(PropTypes.object)
+    data: PropTypes.PropTypes.shape({
+      description: PropTypes.string,
+      value: PropTypes.number,
+      category: PropTypes.string,
+      timestamp: PropTypes.shape({
+        nanoseconds: PropTypes.number,
+        seconds: PropTypes.number
+      })
+    })
   }),
   clearTransaction: PropTypes.func,
   removeTransactionReq: PropTypes.func,

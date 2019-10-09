@@ -86,7 +86,7 @@ export default function(state = INITIAL_STATE, action){
         case types.REMOVE_TRANSACTION_SUCCESS:
             return {
               ...state,
-              transactions: state.transactions.filter(obj => obj.id !== action.payload),
+              transactions: state.transactions.filter(obj => obj.id !== action.payload.id),
               loading: false,
               total:{
                 credit: handleCategoryAmount(Object.assign({}, state), action.payload, 'Credit', 'remove'),

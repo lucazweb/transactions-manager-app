@@ -23,7 +23,7 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
         {
             (!loading && transactions.length > 0) && (
                 <Fragment>
-                    <h2>Transactions list  <Link to='/new-transaction' className="add-transactions-btn"><FontAwesomeIcon icon={faPlusCircle} /> <small>Add transaction</small></Link> </h2>
+                    <h2>Lista de transações  <Link to='/new-transaction' className="add-transactions-btn"><FontAwesomeIcon icon={faPlusCircle} /> <small>Adicionar transação</small></Link> </h2>
                     <div className="box">
                         <ul id="first-list">
                         {
@@ -39,7 +39,7 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                                         <span>
                                           {handleTransactionsDate(transaction.data.timestamp)}
                                           <div className={transaction.data.category === 'Credit' ? 'credit' : 'debit'}>
-                                            {transaction.data.category}
+                                            {transaction.data.category === 'Credit' ? 'Crédito' : 'Débito'}
                                           </div> 
                                         </span> 
                                     </div>
