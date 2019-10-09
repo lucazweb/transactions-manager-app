@@ -11,7 +11,7 @@ const Placeholder = () => (
       <Link to='/new-transaction' className="btn btn-start">Começar</Link>    
     </div>
     <div className="desktop-only"> 
-      <Lottie options={{animationData: animation}} width="80%" />
+      <Lottie options={{animationData: animation}} width="45%" />
     </div>
     <div className="mobile-only"> 
       <Lottie options={{animationData: animation}} width="75%" />
