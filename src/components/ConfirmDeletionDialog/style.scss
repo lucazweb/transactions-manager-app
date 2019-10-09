@@ -76,12 +76,21 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       .title{
         margin: 0;
         text-align: center;
+        justify-content: center;
       }
     }
 
     .transaction-modal-body{
       p{
         text-align: center;
+        &:first-child{
+          margin-top: 4px;
+          margin-bottom: 3px;
+        }
+        &:last-child{
+          margin-top: 0px;
+          color: $color-danger;
+        }
       }
     }
 
@@ -104,6 +113,11 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       }
       
       .btn-remove-transaction{
+        justify-content: center;
+        align-items: center;
+        span{
+          margin-left: 10px;
+        }
         @media #{$mq-smartphones-portrait-landscape} {
           display: flex;
           justify-content: center;

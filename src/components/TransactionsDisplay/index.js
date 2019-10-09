@@ -9,15 +9,15 @@ import './style.scss';
 const TransactionsDisplay = ({transactions, total, loading}) => (
   <div className="total-amount-display">
     <div className="transaction-display-item">
-        <h2>Credit <div className="bullet credit"></div></h2>
+        <h2>Crédito <div className="bullet credit"></div></h2>
         <span>{formatCurrency(total.credit)} </span>            
     </div>
     <div className="transaction-display-item">
-        <h2>Debit <div className="bullet debit"></div></h2>
+        <h2>Débito <div className="bullet debit"></div></h2>
         <span> {formatCurrency(total.debit)}</span>
     </div>
     <div className="transaction-display-item">
-        <h2>Total amount</h2>
+        <h2>Total</h2>
         <span>{formatCurrency(transactions.reduce((sum, transaction) => sum + transaction.data.value, 0))}</span>
     </div>       
   </div>          

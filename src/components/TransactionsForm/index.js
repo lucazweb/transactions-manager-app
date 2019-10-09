@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
 
-let defaultCategory = 'Credit';
+let defaultCategory = 'Crédito';
 
 const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, addTransactionFailure, validationError) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
     let transaction = {
         description: form.description.value,
         value: Number(form.value.value),
-        category: form.category.value
+        category: form.category.value === 'Crédito' ? 'Credit' : 'Debit'
     }
 
     try{
@@ -48,7 +48,7 @@ const handleAddTransactions = (event, addTransactionReq, addTransactionSuccess, 
 }
 
 const handleCategoryValue = e => {
-    e.target.value = e.target.value === 'Credit' ? 'Debit' : 'Credit';
+    e.target.value = e.target.value === 'Crédito' ? 'Débito' : 'Crédito';
 }
 
 const handleCancelRequest = () => {
@@ -57,21 +57,21 @@ const handleCancelRequest = () => {
 
 const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransactionFailure, validationMessage, validationError }) => (
     <div className="transactions-form">
-        <h2>Register a new transaction</h2>
+        <h2>Cadastre uma transação</h2>
 
         <form onSubmit={ e => { handleAddTransactions(e, addTransactionReq, addTransactionSuccess, addTransactionFailure, validationError)}}>
             <div className="group">      
                 <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="description" type="text" required />
                 <span className="highlight"></span>
                 <span className="bar"></span>
-                <label>Description</label>
+                <label>Descrição</label>
             </div>                                                        
             <div className="group-row">
                 <div className="group">      
                     <input className={validationMessage ? 'invalid' : ''} autoComplete="off" name="value" type="number" min="0.5" step=".01" required />
                     <span className="highlight"></span>
                     <span className="bar"></span>
-                    <label>Value</label>
+                    <label>Valor</label>
                 </div>                                  
 
                 <div className="group group-toogle-type">  
@@ -84,8 +84,8 @@ const TransactionsForm = ({ addTransactionReq, addTransactionSuccess, addTransac
               validationMessage && (<span className="error-message"> {validationMessage} </span>)
             }            
             <div className="group group-btns">
-                <button type="submit" className="btn btn-save-transactions">Save Transaction</button>
-                <button onClick={() => handleCancelRequest()} className="btn btn-cancel-transactions">Cancel Transaction</button>
+                <button type="submit" className="btn btn-save-transactions">Salvar transação</button>
+                <button onClick={() => handleCancelRequest()} className="btn btn-cancel-transactions">Cancelar</button>
             </div>
         </form>
     </div>    

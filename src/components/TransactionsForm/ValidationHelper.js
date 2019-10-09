@@ -3,7 +3,7 @@ export const descriptionValidation = description => {
   if(description && pattern.test(description)){
       return true
   } else {
-    throw new Error('Check Description Field, only words.');
+    throw new Error('Campo descrição só deve ter palavras.');
   }
 };
 
@@ -11,12 +11,12 @@ export const categoryValidation = category => {
   if(category.includes('Credit') || category.includes('Debit') ){
       return true;
   }
-  throw new Error('Category injection error.');
+  throw new Error('Selecione uma categoria existente');
 }
 
 export const valueValidation = value => {
   if(typeof(value) == 'number' && value > 0){
     return true;
   }
-  throw new Error('Check Value Field. Only positive numbers');
+  throw new Error('Os valores só podem ser positivos.');
 }
