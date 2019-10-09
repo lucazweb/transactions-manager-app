@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faWallet, faPlusCircle, faArrowAltCircleLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faWallet, faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import mockphoto from './lucazweb_placeholder.jpg';
 import './style.scss';
 
@@ -28,11 +28,13 @@ const MobileNavigation = ({toggleMobileMenu, isMobileMenuOpen, currentView }) =>
         </div>
         <ul>
             <li onClick={() => toggleMobileMenu()}> <Link to='/'> <FontAwesomeIcon icon={faWallet} /> <span>Dashboard</span> </Link></li>
-            <li onClick={() => toggleMobileMenu()}> <Link to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>New Transaction</span> </Link></li>
+            <li onClick={() => toggleMobileMenu()}> <Link to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>Nova transação</span> </Link></li>
         </ul>
 
-
     </nav>
+    {
+      isMobileMenuOpen && (<div className="nav-overflow"></div>)
+    }
   </div>
 );
 
