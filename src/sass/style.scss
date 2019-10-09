@@ -33,6 +33,7 @@ html, body{
     margin: 0;
     padding: 0;
     background: $color-app-background;
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, p, span, a, li{
@@ -48,6 +49,7 @@ h1, h2, h3, h4, p, span, a, li{
     @media #{$mq-smartphones-portrait-landscape} {
       @include flex-vertical();
       width: 100%;
+      padding-top: 40px;
     }   
 
     aside{

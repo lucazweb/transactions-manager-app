@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Placeholder from '../Placeholder';
 import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
+import { Link } from 'react-router-dom';
 import { TimestampToDate } from '../../service/FireService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
@@ -21,7 +22,7 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
         {
             (!loading && transactions.length > 0) && (
                 <Fragment>
-                    <h2>Transactions list</h2>
+                    <h2>Transactions list  <Link to='/new-transaction' className="add-transactions-btn"><FontAwesomeIcon icon={faPlusCircle} /> <small>Add transaction</small></Link> </h2>
                     <div className="box">
                         <ul id="first-list">
                         {

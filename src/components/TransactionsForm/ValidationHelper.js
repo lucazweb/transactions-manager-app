@@ -1,6 +1,6 @@
 export const descriptionValidation = description => {
-  let pattern = /[!@#$%^&*(),.?":{}|<>]/g;
-  if(description && !pattern.test(description)){
+  let pattern = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
+  if(description && pattern.test(description)){
       return true
   } else {
     throw new Error('Check Description Field, only words.');
