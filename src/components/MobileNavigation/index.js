@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faWallet, faPlusCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import mockphoto from './lucazweb_placeholder.jpg';
 import './style.scss';
 
 const MobileNavigation = ({toggleMobileMenu, isMobileMenuOpen, currentView }) => (
@@ -15,10 +16,19 @@ const MobileNavigation = ({toggleMobileMenu, isMobileMenuOpen, currentView }) =>
     </div>
     
     <nav className={isMobileMenuOpen ? 'active' : ''}>
+        <div className="user-profile">
+            <div className="user-photo" style={{backgroundImage: `url(${mockphoto})`}}></div>
+            <div className="user-info">
+                <h2>Lucas Santos</h2>
+                <span>lucazwebmail@gmail.com</span>
+            </div>
+        </div>
         <ul>
-            <li onClick={() => toggleMobileMenu()}> <Link to='/'> Dashboard </Link></li>
-            <li onClick={() => toggleMobileMenu()}> <Link to='/new-transaction'> New Transaction </Link></li>
+            <li onClick={() => toggleMobileMenu()}> <Link to='/'> <FontAwesomeIcon icon={faWallet} /> <span>Dashboard</span> </Link></li>
+            <li onClick={() => toggleMobileMenu()}> <Link to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>New Transaction</span> </Link></li>
         </ul>
+
+
     </nav>
   </div>
 );

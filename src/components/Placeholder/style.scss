@@ -19,14 +19,20 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
   display: flex;
   margin-top: 20px;
   @media #{$mq-smartphones-portrait-landscape} {
-    width: 100%;
     @include flex-vertical();
+    width: 100%;
+    margin-top: 0;
     flex-flow: column-reverse;
   }  
   .welcome{
     width:77%;
     @media #{$mq-smartphones-portrait-landscape} {
       width: 100%;
+      h2{
+        width: 100%;
+        margin-top: 10px;
+        display: block;
+      }
     }
     h2{
       margin-top: 35px;

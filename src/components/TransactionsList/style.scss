@@ -6,6 +6,10 @@ $color-item-hover: #1C6E8C;
 $color-danger: #d32f2f;
 $color-credit: purple;
 $color-debit: rgb(0, 140, 255);
+$color-add: #289e28;
+
+// SPACERS
+$mobile-title-default-spacer: 40px;
 
 // BREAKPOINTS
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
@@ -19,134 +23,181 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     display: flex;
 }
 
+// Transactions list
 .transactions-list{
-    h2{
-        margin-bottom: 0;
-    }
-    // CSS VERTICAL TIMELINE
-   
-    .box{
-        overflow: hidden;
-        padding: 10px 0 40px 60px;
-        ul{
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            transition: all 0.5s linear;
-            top:0;
-            &:before{
-                content: "";
-                display: block;
-                width: 0;
-                height: 100%;
-                border:1px dashed #333;
-                position: absolute;
-                top:5px;
-                left:94px
-            }
+  margin-top: 20px;
+  @media #{$mq-smartphones-portrait-landscape} {
+    margin-top: $mobile-title-default-spacer;
+  }    
+  h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    @media #{$mq-smartphones-portrait-landscape} {
+      display: inline;
+    }       
+      .add-transactions-btn{
+        display: flex;
+        color: $color-add;
+        margin-top: 5px;
+        margin-left: 15px;
+        transition: all ease 0.4s;
+        text-decoration: none !important;
+        @media #{$mq-smartphones-portrait-landscape} {
+          display: inline;
+        }                 
+        small{
+          opacity: 0;
+          margin-left: 10px;
+          transition: opacity ease 0.3s;
+          font-size: 0.6em;
+          text-decoration: none !important;
+          @media #{$mq-smartphones-portrait-landscape} {
+            display: none;
+          }       
+        }
+        &:hover{
+          color: green;
+          small{
+            opacity: 1
+          }
+        }
+      }
+  }
+  
+  // CSS VERTICAL TIMELINE
+  .box{
+      overflow: hidden;
+      padding: 10px 0 40px 60px;
+      
+      ul{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          transition: all 0.5s linear;
+          top:0;
+          &:before{
+              content: "";
+              display: block;
+              width: 0;
+              height: 100%;
+              border:1px dashed #333;
+              position: absolute;
+              top:5px;
+              left:94px;
+              @media #{$mq-smartphones-portrait-landscape} {
+                left: 72px;
+              }                  
+          }
 
-            li{
-                margin: 20px 104px 20px;
-                position: relative;
-                padding: 0px 10px;
-                color:#333;
-                line-height: 20px;
-                width: 35%;
-                cursor: pointer;
-                @media #{$mq-smartphones-portrait-landscape} {
-                  width: 100%;
-                }                   
-                &:hover{
-                   color: $color-danger;
+          li{
+              margin: 20px 104px 20px;
+              position: relative;
+              padding: 0px 10px;
+              color:#333;
+              line-height: 20px;
+              width: 35%;
+              cursor: pointer;
+              @media #{$mq-smartphones-portrait-landscape} {
+                width: 100%;
+                margin: 20px 82px 20px;
+              }                   
+              &:hover{
+                  color: $color-danger;
 
-                }
+              }
+              .title{
+                  position: relative;
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  margin-bottom: 0;
+                  font-size: 0.9em;
+                  width: 180px;
+                  transition: color ease 0.4s;
+                  &:first-letter{
+                    text-transform: capitalize;
+                    line-height: 1.7
+                  }
 
-                .title{
-                    position: relative;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    margin-bottom: 0;
-                    font-size: 0.9em;
-                    width: 180px;
-                    transition: color ease 0.4s;
-                    &:first-letter{
-                      text-transform: capitalize;
-                      line-height: 1.7
+                  &:hover{
+                    .remove-btn{
+                      display: flex;
+                      opacity: 1;
                     }
+                  }
 
+                  .remove-btn{
+                    position: absolute;
+                    top: 3px;
+                    right: -3%;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    font-size: 0.8em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    background: #ccc;
+                    transition: all linear 0.2s;
+                    background: $color-danger;
+                    opacity: 0;
+                    @media #{$mq-smartphones-portrait-landscape} {
+                      display: none;
+                    }                        
                     &:hover{
+                      background: $color-danger;
+                      transform: scale(1.2);
                       .remove-btn{
                         display: flex;
-                        opacity: 1;
                       }
                     }
-
-                    .remove-btn{
+                  }                    
+              }    
+              .price{
+                  font-size: 1.1em;
+                  display: initial;
+              }    
+              .time {
+                  span{
                       position: absolute;
-                      top: 3px;
-                      right: -3%;
-                      width: 20px;
-                      height: 20px;
-                      border-radius: 50%;
-                      font-size: 0.8em;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      color: white;
-                      background: #ccc;
-                      transition: all linear 0.2s;
-                      background: $color-danger;
-                      opacity: 0;
-                      &:hover{
-                        background: $color-danger;
-                        transform: scale(1.2);
-                        .remove-btn{
-                          display: flex;
-                        }
-                      }
-                    }                    
-                }    
-                .price{
-                    font-size: 1.1em;
-                    display: initial;
-                }    
-                .time {
-                    span{
-                        position: absolute;
-                        left: -160px;
-                        top: -2px;
-                        color:#333;
-                        font-size:80%;
-                        font-weight: bold;
-                    }                         
-                }                                   
-            }   
-            li > span{
-                content: "";
-                display: block;
-                width: 0;
-                height: 100%;
-                border:1px solid #333;
-                position: absolute;
-                top:12px;
-                left:-10px;
-                &:before{
-                    content: "";
-                    display: block;
-                    top: -10px;
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    background: $color-list-bullet;
-                    border:2px solid #333;
-                    position: absolute;
-                    left:-7.5px
-                }
-                &:after{top:95%}
-            }                     
-        }        
-    }
+                      left: -160px;
+                      top: -2px;
+                      color:#333;
+                      font-size:80%;
+                      font-weight: bold;
+                      @media #{$mq-smartphones-portrait-landscape} {
+                        left: -137px;
+                      }                          
+                  }                         
+              }                                   
+          }   
+          li > span{
+              content: "";
+              display: block;
+              width: 0;
+              height: 100%;
+              border:1px solid #333;
+              position: absolute;
+              top:12px;
+              left:-10px;
+              &:before{
+                  content: "";
+                  display: block;
+                  top: -10px;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  background: $color-list-bullet;
+                  border:2px solid #333;
+                  position: absolute;
+                  left:-7.5px
+              }
+              &:after{top:95%}
+          }                     
+      }        
+  }
 }
 
 div.credit{

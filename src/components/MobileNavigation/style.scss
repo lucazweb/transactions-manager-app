@@ -1,11 +1,23 @@
 // * Spartphones 
 $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 1024px)";
 
+@mixin flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-horizontal {
+  display: flex;
+}
+
 .mobile-menu{
     display: none;
     width: 100%;
     @media #{$mq-smartphones-portrait-landscape} {
         display: flex;
+        position: absolute;
+        top: 0;
+        left:0;
     }   
     
     .mobile-menu-header{
@@ -22,7 +34,6 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
             align-items: center;
             width: 40px;
             height: 40px;
-            border-right: 1px solid #ccc;
             cursor: pointer;
         }
 
@@ -35,7 +46,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         }
     }     
     nav.active{
-        display: flex !important;
+        @include flex-vertical();
         left: 0;
         animation-name: mobileMenuOpen;
         animation-duration: 0.2s; /* or: Xms */
@@ -67,19 +78,60 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
                 align-items: center;
                 padding: 10px;
                 width: 100%;
-                height: 40px;
-                border-bottom: 1px solid #ccc;
+                height: 50px;
+                border-bottom: 0.5px solid black;
                 a{
                     display:flex;
+                    align-items: center;
                     font-family: sans-serif;
                     color: white;
                     text-decoration: none;
                     cursor: pointer;
                     width: 100%;
                     height: 40px;
+                    span{
+                      margin-left: 10px;
+                    }
                 }
             }
         }
+
+        .user-profile{
+          margin-top: 30px;
+          width: 100%;
+          @include flex-horizontal;
+          padding: 10px;
+          color: white;
+          .user-photo{
+              display: flex;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              background-color: #ccc;
+              filter: grayscale(20%);
+              background-size: 110%;
+              background-position: center;
+              background-repeat: no-repeat;
+              align-self: auto;
+              flex-shrink: 0;
+              border: 2px solid white;
+          }
+  
+          .user-info{
+              @include flex-vertical();
+              justify-content: center;
+              margin-left: 10px;
+              h2{
+                  font-size: 1em;
+                  margin: 0;
+                  padding: 0;
+              }
+              span{
+                font-size: 0.8em;
+              }
+          }
+      }        
+        
     }
 }
 

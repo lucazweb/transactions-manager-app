@@ -44,6 +44,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
               width: 8px;
               height: 8px;
               border-radius: 50%;
+              @media #{$mq-smartphones-portrait-landscape} {
+                top: 5px;
+                left: 50px;
+              }               
             }
             .credit{
               background: $color-credit;

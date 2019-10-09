@@ -52,6 +52,9 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     padding: 15px;
     background: white;
     position: relative;
+    @media #{$mq-smartphones-portrait-landscape} {
+      width: 90%;
+    }
     .btn-close{
       position: absolute;
       top: -10px;
@@ -101,6 +104,13 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       }
       
       .btn-remove-transaction{
+        @media #{$mq-smartphones-portrait-landscape} {
+          display: flex;
+          justify-content: center;
+          span{
+            margin-left: 10px;
+          }
+        }
         &:hover{
           border: 1.5px solid $color-danger;
           color:$color-danger;
