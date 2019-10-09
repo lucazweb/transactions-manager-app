@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as transactionActions from '../../store/actions/transactions';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faWallet, faPlusCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faWallet, faPlusCircle, faArrowAltCircleLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import mockphoto from './lucazweb_placeholder.jpg';
 import './style.scss';
 
@@ -16,6 +16,9 @@ const MobileNavigation = ({toggleMobileMenu, isMobileMenuOpen, currentView }) =>
     </div>
     
     <nav className={isMobileMenuOpen ? 'active' : ''}>
+
+        <div onClick={() => toggleMobileMenu()} className="close-back-menu"><FontAwesomeIcon icon={faTimesCircle} /></div>
+
         <div className="user-profile">
             <div className="user-photo" style={{backgroundImage: `url(${mockphoto})`}}></div>
             <div className="user-info">
