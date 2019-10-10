@@ -46,6 +46,9 @@ Para o desenvolvimento da aplicação, foram utilizados os seguintes pacotes:
 * format-currency-to-br 1.0.0
 * cypress 3.4.1 (dev)
 
+#### Uso do Lottie Animations - Atribuição
+Animação sob licença Creative Commons, de autoria [MySOS Family](https://lottiefiles.com/mysosfamily)
+
 #### Testes end-to-end com cypress
 Para os executar os testes end-to-end com cypress, basta seguir os seguintes passos:
 1. Limpar as transações cadastradas
