@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import * as formatCurrency from 'format-currency-to-br';
 import moment from 'moment';
 import Placeholder from '../Placeholder';
+import Loading from '../Loading';
 import ConfirmDeletionDialog from '../ConfirmDeletionDialog';
 import * as transactionActions from '../../store/actions/transactions';
 import './style.scss';
@@ -49,14 +50,17 @@ const TransactionsList = ({transactions, loading, selectTransaction}) => (
                         }
                         </ul>
                     </div>    
-
                     <ConfirmDeletionDialog />
-                    
                 </Fragment>
             )
         }
+
         {
-          transactions.length === 0 && (
+          loading && (<Loading />)
+        }
+
+        {
+          (transactions.length === 0) && !loading && (
             <Placeholder />
           )
         }
