@@ -74,7 +74,7 @@ $ firebase deploy
 ```
 Acesse o endereço gerado pelo firebase onde a aplicação está hospedada
 
-![bash firebase deploy](./misc/application_running.png)
+![bash firebase deploy](./misc/firebase_bash_screenshot.png)
 
 ```
 https://<nome_da_app_firebase>.firebaseapp.com
