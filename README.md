@@ -81,7 +81,7 @@ https://<nome_da_app_firebase>.firebaseapp.com
 ```
 
 ### Contribuição
-Que tal contribuir com o projeto? É muito fácil, saiba como acessando o nosso contributing.md
+Que tal contribuir com o projeto? É muito fácil, saiba como acessando o nosso [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ### Licença
 Essa aplicação está licenciada de acordo com os termos MIT
