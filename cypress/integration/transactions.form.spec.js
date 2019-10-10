@@ -1,5 +1,4 @@
 describe('Transactions Form type test', () => {
-  
   beforeEach(() => {
     cy.visit('http://localhost:3000/new-transaction')
   });
