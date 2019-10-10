@@ -7,7 +7,8 @@ import './style.scss';
 const Placeholder = () => (
   <div className="transactions-placeholder">
     <div className="welcome"> 
-      <h2> Nenhuma transação cadastrada. <br /> <small>Comece a registrar as suas transações.</small> </h2>
+      <h2> Nenhuma transação cadastrada. </h2>
+      <p>Que tal acompanhar os seus gastos?</p>
       <Link to='/new-transaction' className="btn btn-start">Começar</Link>    
     </div>
     <div className="desktop-only"> 

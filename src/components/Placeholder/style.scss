@@ -33,14 +33,23 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         width: 100%;
         margin-top: 10px;
         display: block;
+        border: none;
       }
     }
     h2{
-      margin-top: 0;
       @include flex-vertical();
+      margin-top: 0;
+      border: none;
+      // Smartphones media querirs
       @media #{$mq-smartphones-portrait-landscape} {
         text-align: center;
       }      
+    }
+    p{
+      text-align: center;
+      font-size: 1.1em;
+      margin-top: 2px;
+      margin-bottom: 0;
     }
     .btn{
       @include flex-horizontal();
@@ -60,7 +69,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       }
     }
     .btn-start{
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 0.9em;
       font-weight: bold;
       transition: all ease 0.3s;
@@ -68,6 +77,11 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         border: 1.5px solid $color-success;
         color: $color-success;
       }
+      // Smartphones media queries
+      @media #{$mq-smartphones-portrait-landscape} {
+        margin-top: 25px;
+      }
+
     }  
   }
 

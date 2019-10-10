@@ -1,0 +1,15 @@
+// * Smartphones 
+$mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 1024px)";
+
+.loading-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 80px;
+  margin-top: 60px;
+  @media #{$mq-smartphones-portrait-landscape} {
+    width: 100%;
+    margin: 40px auto auto auto;
+  }     
+}
