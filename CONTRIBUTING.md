@@ -23,4 +23,4 @@ Para contribuir no projeto, antes abra um issue, e-mail ou qualquer outro métod
 * Garantir membros alinhados com o espírito do projeto
 
 ### Atribuição
-Esse código de conduta foi adaptado do [Contributor Convernant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html) 
+Esse código de conduta foi adaptado do [Contributor Covernant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html) 

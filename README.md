@@ -48,7 +48,7 @@ Para o desenvolvimento da aplicação, foram utilizados os seguintes pacotes:
 #### Testes end-to-end com cypress
 Para os executar os testes end-to-end com cypress, basta seguir os seguintes passos:
 1. Limpar as transações cadastradas
-2. Executar `yarn e2e`  ou  `npm e2e`
+2. Executar `yarn e2e`  ou  `npm run e2e`
 
 #### Gerando um Build para produção
 Gere uma versão para produção utilizando os seguintes comandos:
