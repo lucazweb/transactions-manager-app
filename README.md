@@ -68,14 +68,16 @@ ou
 ```
 $ npm install -g firebase-tools
 ```
-feito isso, execute:
+feito isso, é preciso criar um projeto na sua conta firebase, e configurar o projeto localmente com os dados da aplicação, é possível encontrar as configurações de hosting no arquivo firebase.json. Com o paco firebase-tools, fica muito fácil criar essa configuração a partir do comando `firebase init`, feito isso basta rodar o build novamente com o comando `yarn build`, e então executar:
 ```
 $ firebase deploy
 ```
 Acesse o endereço gerado pelo firebase onde a aplicação está hospedada
 
+![bash firebase deploy](./misc/application_running.png)
+
 ```
-https://<Nome_da_App>.firebaseapp.com
+https://<nome_da_app_firebase>.firebaseapp.com
 ```
 
 ### Contribuição
