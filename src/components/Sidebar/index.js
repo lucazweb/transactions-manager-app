@@ -17,8 +17,8 @@ const Sidebar = () => (
 
         <nav className="sidebar-menu">
             <ul>
-                <li><Link to='/'> <FontAwesomeIcon icon={faWallet} /> <span>Dashboard </span></Link></li>
-                <li><Link to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>Nova transação </span></Link></li>
+                <li><Link data-test="dashboard" to='/'> <FontAwesomeIcon icon={faWallet} /> <span>Dashboard </span></Link></li>
+                <li><Link data-test="newtransaction" to='/new-transaction'><FontAwesomeIcon icon={faPlusCircle} /><span>Nova transação </span></Link></li>
                 <li><Link><FontAwesomeIcon icon={faSignOutAlt} /><span>Sair</span></Link></li>
             </ul>
         </nav>
