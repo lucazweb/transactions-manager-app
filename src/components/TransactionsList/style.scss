@@ -25,6 +25,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
 
 // Transactions list
 .transactions-list{
+  position: relative;
   margin-top: 20px;
   @media #{$mq-smartphones-portrait-landscape} {
     margin-top: $mobile-title-default-spacer;
@@ -34,7 +35,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
     align-items: center;
     margin-bottom: 0;
     @media #{$mq-smartphones-portrait-landscape} {
-      display: inline;
+      display: block;
+      padding-bottom: 8px;
+      width: 100%;
+      border-bottom: 1px solid #333;
     }       
       .add-transactions-btn{
         display: flex;
@@ -121,10 +125,10 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
                   }
 
                   &:hover{
-                    .remove-btn{
-                      display: flex;
-                      opacity: 1;
-                    }
+                    // .remove-btn{
+                    //   display: flex;
+                    //   opacity: 1;
+                    // }
                   }
 
                   .remove-btn{

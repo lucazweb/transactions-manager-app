@@ -38,6 +38,7 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
       @media #{$mq-smartphones-portrait-landscape} {
         margin-top: auto;
         margin-bottom: 30px;
+        text-align: center;
       }      
     }
     .group-row{
@@ -71,6 +72,12 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
         position:relative; 
         margin-bottom:45px; 
         width: 100%;
+        @media #{$mq-smartphones-portrait-landscape} {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }        
         input {
           font-size:18px;
           padding:10px 10px 10px 5px;
@@ -107,6 +114,9 @@ $mq-smartphones-portrait-landscape: "only screen and (min-device-width : 320px) 
           transition:0.2s ease all; 
           -moz-transition:0.2s ease all; 
           -webkit-transition:0.2s ease all;
+          @media #{$mq-smartphones-portrait-landscape} {
+            left: 18px;
+          }          
         }  
         .bar{
           position:relative; 
