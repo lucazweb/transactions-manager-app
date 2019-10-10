@@ -6,7 +6,7 @@ Uma aplicação React / Redux, integrada com Firebase, que permite aos usuários
   - Inserir ou remover transações de crédito ou débito
   - Visualizar o valor total de transações e de cada categoria
 
-![Aplicação sendo executado num browser desktop](./misc/application_running.gif)
+![Aplicação sendo executado num browser desktop](./misc/application_running.png)
 
 ### Instalação
 
